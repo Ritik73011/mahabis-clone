@@ -1,0 +1,16 @@
+.menulist {
+    display: flex;
+    gap: 16px;
+}
+
+.menuLists {
+    cursor: pointer;
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    padding: 8px;
+}
+
+.menuLists:hover {
+    color: black;
+    font-weight: 600;
+}

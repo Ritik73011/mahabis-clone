@@ -1,0 +1,17 @@
+.logoDiv {
+    display: flex;
+    gap: 8px;
+}
+
+.logoDiv img {
+    width: 30px;
+    height: 30px;
+}
+
+.h1 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #111;
+    letter-spacing: .01em;
+    font-family: 'Raleway', sans-serif;
+}
