@@ -10,19 +10,6 @@
     padding: 8px;
 }
 
-.menulist ul {
-    display: flex;
-    gap: 16px;
-}
-
-.menulist>ul>li {
-    list-style: none;
-}
-
-Link {
-    text-decoration: none;
-}
-
 .magamenu {
     position: absolute;
     top: 100%;
@@ -40,23 +27,4 @@ Link {
     z-index: 10;
 }
 
-.menuLists:hover {
-    color: black;
-    font-weight: 600;
-}
-
-.chakra-popover__popper.css-1qq679y {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    inset: 6px auto auto 0px;
-}
-
-.chakra-popover__content.css-sjj62m {
-    width: 100%;
-}
-
-.menuBtn {
-    font-family: 'Raleway', sans-serif;
-    font-size: 14px;
-}
+/*Responsive*/

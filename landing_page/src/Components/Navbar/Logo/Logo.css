@@ -15,3 +15,20 @@
     letter-spacing: .01em;
     font-family: 'Raleway', sans-serif;
 }
+
+/*Responsive*/
+@media only screen and (max-width: 768px) {
+    .logoDiv {
+        display: block;
+        text-align: center;
+    }
+
+    .logoDiv img {
+        display: block;
+        margin: auto;
+    }
+
+    .h1 {
+        font-size: 16px;
+    }
+}
