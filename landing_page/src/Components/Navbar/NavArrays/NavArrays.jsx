@@ -113,4 +113,33 @@ const accessories = [
     "socks - 50% off",
     "digital gift cards"
 ]
-export {mens,womens,mensCollections,womensCollections,accessories}
+const aboutUS = [
+    "sustainability",
+    "compare styles",
+    "who we are",
+    "read reviews",
+    "stories of time well spent",
+    "detachable soles",
+    "blog",
+    "careers"
+]
+const existingC = [
+    "recycle your mahabis"
+]
+const gifting = [
+    "the perfect gift",
+    "digital gift cards"
+]
+const helps = [
+    "faqs",
+    "size chart",
+    "contact us",
+    "compare styles"
+]
+const delivery = [
+    "exchanges & returns",
+    "track your order",
+    "delivery information"
+]
+const empty =[]
+export {mens,womens,mensCollections,womensCollections,accessories,aboutUS,existingC,gifting,helps,delivery,empty}

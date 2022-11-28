@@ -4,6 +4,10 @@
 
 .navGridAc .name {
     text-align: start;
+    font-family: Raleway, sans-serif;
+    font-size: 14px;
+    color: #000000;
+    font-weight: 500;
 }
 
 .access {
@@ -18,4 +22,14 @@
 
 .access p {
     text-align: start;
+    font-family: Raleway, sans-serif;
+    font-size: 14px;
+    color: #000000;
+}
+
+.access p:hover {
+    transform: scale(1.0);
+    transition: 0.2s ease-in-out;
+    font-weight: 500;
+    color: black;
 }

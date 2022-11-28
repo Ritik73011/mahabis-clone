@@ -8,6 +8,10 @@
     cursor: pointer;
     width: max-content;
     margin-bottom: 4px;
+    font-family: Raleway, sans-serif;
+    font-size: 14px;
+    color: #000000;
+    font-weight: 500;
 }
 
 .navGridFlex {
@@ -20,10 +24,26 @@
 .navGridFlex img {
     width: 100px;
     height: 66px;
+    mix-blend-mode: multiply;
+}
+
+.navGridFlex:hover img {
+    transform: scale(1.07);
+    transition: 0.2s ease-in-out;
+}
+
+.navGridFlex:hover p {
+    color: black;
+    font-weight: 500;
 }
 
 .navGridFlex>p {
     text-align: center;
     align-items: center;
     margin: auto 0;
+    font-family: Raleway, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    color: #000000;
 }
