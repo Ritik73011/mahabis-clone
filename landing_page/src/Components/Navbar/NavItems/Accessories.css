@@ -1,0 +1,21 @@
+.navGridAc {
+    display: block;
+}
+
+.navGridAc .name {
+    text-align: start;
+}
+
+.access {
+    display: block;
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+.mgt {
+    margin-top: 32px;
+}
+
+.access p {
+    text-align: start;
+}

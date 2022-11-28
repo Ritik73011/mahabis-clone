@@ -1,0 +1,29 @@
+.navGrid {
+    display: block;
+}
+
+.navGrid .name {
+    text-align: start;
+    padding: 5px;
+    cursor: pointer;
+    width: max-content;
+    margin-bottom: 4px;
+}
+
+.navGridFlex {
+    display: flex;
+    gap: 8px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.navGridFlex img {
+    width: 100px;
+    height: 66px;
+}
+
+.navGridFlex>p {
+    text-align: center;
+    align-items: center;
+    margin: auto 0;
+}
