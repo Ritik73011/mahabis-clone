@@ -4,10 +4,10 @@ import {
   PopoverTrigger,
   PopoverContent,
   PopoverBody,
-  Button
+  Button,
 } from '@chakra-ui/react'
-import {mens,womens,mensCollections,womensCollections,accessories,aboutUS,existingC,gifting,helps,delivery,empty} from '../NavArrays/NavArrays'
-import {ChevronDownIcon} from '@chakra-ui/icons';
+import { mens, womens, mensCollections, womensCollections, accessories, aboutUS, existingC, gifting, helps, delivery, empty } from '../NavArrays/NavArrays'
+import { ChevronDownIcon } from '@chakra-ui/icons';
 import './Menu.css';
 import Icon from '../Icons/Icon';
 import NavItems from '../NavItems/NavItems';
@@ -20,80 +20,79 @@ function MenuLists() {
   const name1m = 'mahabis rewards'
   const name2c = 'Sale slippers - shop outlet'
   const name3w = 'Gift mahabis'
-
   return (
     <div className='menulist'>
-       
-       <Flex>
-       <Popover isLazy>
-        <PopoverTrigger>
-          <Button bg='none' padding='3' fontWeight='normal' fontSize='14px' _hover={{bg:'none',color:'black',fontWeight:'600'}} className='menuBtn'>Men <ChevronDownIcon ml='4px'/></Button>
-        </PopoverTrigger>
-        <PopoverContent pos='absolute' top='2' width='100%' bg='#f5f5f5'>
-        <PopoverBody>
-            <Flex gap='70px' justifyContent='center' padding='20px 16px'>
-              <NavItems name={'mens'} arr={mens}/>
-              <NavItems name={'collections'} arr={mensCollections}/>
-              <Accessories name={'accessories'} arr={accessories}/>
-              <ImageMenu name1={name1m} name2={name2c} img1={img1m} img2={img2c}/>
-            </Flex>
-        </PopoverBody>
-      </PopoverContent>
-      </Popover>
 
-      <Popover isLazy>
-        <PopoverTrigger>
-          <Button bg='none' padding='3' fontWeight='normal' fontSize='14px' _hover={{bg:'none',color:'black',fontWeight:'600'}} className='menuBtn'>Women<ChevronDownIcon ml='4px'/></Button>
-        </PopoverTrigger>
-        <PopoverContent pos='absolute' top='2' width='100%' bg='#f5f5f5'>
-        <PopoverBody>
-            <Flex gap='70px' justifyContent='center' padding='20px 16px'>
-              <NavItems name={'mens'} arr={womens}/>
-              <NavItems name={'collections'} arr={womensCollections}/>
-              <Accessories name={'accessories'} arr={accessories}/>
-              <ImageMenu name1={name1m} name2={name2c} img1={img3w} img2={img2c}/>
-            </Flex>
-        </PopoverBody>
-      </PopoverContent>
-      </Popover>
+      <Flex>
+        <Popover isLazy>
+          <PopoverTrigger>
+            <Button bg='none' padding='3' fontWeight='normal' fontSize='14px' _hover={{ bg: 'none', color: 'black', fontWeight: '600' }} className='menuBtn'>Men <ChevronDownIcon ml='4px' /></Button>
+          </PopoverTrigger>
+          <PopoverContent pos='absolute' top='2' width='100%' bg='#f5f5f5'>
+            <PopoverBody>
+              <Flex gap='70px' justifyContent='center' padding='20px 16px'>
+                <NavItems name={'mens'} arr={mens} />
+                <NavItems name={'collections'} arr={mensCollections} />
+                <Accessories name={'accessories'} arr={accessories} />
+                <ImageMenu name1={name1m} name2={name2c} img1={img1m} img2={img2c} />
+              </Flex>
+            </PopoverBody>
+          </PopoverContent>
+        </Popover>
 
-       <Popover isLazy>
-        <Button bg='none' padding='3' fontWeight='normal' fontSize='14px' _hover={{bg:'none'}} className='menuBtn'>Gifting</Button>
-      </Popover>
+        <Popover isLazy>
+          <PopoverTrigger>
+            <Button bg='none' padding='3' fontWeight='normal' fontSize='14px' _hover={{ bg: 'none', color: 'black', fontWeight: '600' }} className='menuBtn'>Women<ChevronDownIcon ml='4px' /></Button>
+          </PopoverTrigger>
+          <PopoverContent pos='absolute' top='2' width='100%' bg='#f5f5f5'>
+            <PopoverBody>
+              <Flex gap='70px' justifyContent='center' padding='20px 16px'>
+                <NavItems name={'mens'} arr={womens} />
+                <NavItems name={'collections'} arr={womensCollections} />
+                <Accessories name={'accessories'} arr={accessories} />
+                <ImageMenu name1={name1m} name2={name2c} img1={img3w} img2={img2c} />
+              </Flex>
+            </PopoverBody>
+          </PopoverContent>
+        </Popover>
 
-      <Popover isLazy>
-        <PopoverTrigger>
-          <Button bg='none' padding='3' fontWeight='normal' _hover={{bg:'none',color:'black',fontWeight:'600',}} fontSize='14px' className='menuBtn'>About Us<ChevronDownIcon ml='4px'/></Button>
-        </PopoverTrigger>
-        <PopoverContent pos='absolute' top='2' width='100%' bg='#f5f5f5'>
-        <PopoverBody>
-            <Flex gap='70px' justifyContent='center' padding='20px 16px'>
-              <Accessories name={'about us'} arr={aboutUS}/>
-              <Accessories name={'existing customers'} arr={existingC}/>
-              <Accessories name={'gifting'} arr={gifting}/>
-              <ImageMenu name1={name3w} name2={name2c} img1={img3w} img2={img2c}/>
-            </Flex>
-        </PopoverBody>
-      </PopoverContent>
-      </Popover>
+        <Popover isLazy>
+          <Button bg='none' padding='3' fontWeight='normal' fontSize='14px' _hover={{ bg: 'none' }} className='menuBtn'>Gifting</Button>
+        </Popover>
 
-      <Popover isLazy>
-        <PopoverTrigger>
-          <Button bg='none' padding='3' fontWeight='normal' _hover={{bg:'none',color:'black',fontWeight:'600'}} fontSize='14px' className='menuBtn'>Help<ChevronDownIcon ml='4px'/></Button>
-        </PopoverTrigger>
-        <PopoverContent pos='absolute' top='2' width='100%' bg='#f5f5f5'>
-        <PopoverBody>
-            <Flex gap='70px' justifyContent='center' padding='20px 16px'>
-              <Accessories name={'help'} arr={helps}/>
-              <Accessories name={'delivery'} arr={delivery}/>
-              <Accessories name={''} arr={empty}/>
-              <ImageMenu name1={name3w} name2={name2c} img1={img1m} img2={img2c}/>
-            </Flex>
-        </PopoverBody>
-      </PopoverContent>
-      </Popover>
-       </Flex>
-     <Icon/>
+        <Popover isLazy>
+          <PopoverTrigger>
+            <Button bg='none' padding='3' fontWeight='normal' _hover={{ bg: 'none', color: 'black', fontWeight: '600', }} fontSize='14px' className='menuBtn'>About Us<ChevronDownIcon ml='4px' /></Button>
+          </PopoverTrigger>
+          <PopoverContent pos='absolute' top='2' width='100%' bg='#f5f5f5'>
+            <PopoverBody>
+              <Flex gap='70px' justifyContent='center' padding='20px 16px'>
+                <Accessories name={'about us'} arr={aboutUS} />
+                <Accessories name={'existing customers'} arr={existingC} />
+                <Accessories name={'gifting'} arr={gifting} />
+                <ImageMenu name1={name3w} name2={name2c} img1={img3w} img2={img2c} />
+              </Flex>
+            </PopoverBody>
+          </PopoverContent>
+        </Popover>
+
+        <Popover isLazy>
+          <PopoverTrigger>
+            <Button bg='none' padding='3' fontWeight='normal' _hover={{ bg: 'none', color: 'black', fontWeight: '600' }} fontSize='14px' className='menuBtn'>Help<ChevronDownIcon ml='4px' /></Button>
+          </PopoverTrigger>
+          <PopoverContent pos='absolute' top='2' width='100%' bg='#f5f5f5'>
+            <PopoverBody>
+              <Flex gap='70px' justifyContent='center' padding='20px 16px'>
+                <Accessories name={'help'} arr={helps} />
+                <Accessories name={'delivery'} arr={delivery} />
+                <Accessories name={''} arr={empty} />
+                <ImageMenu name1={name3w} name2={name2c} img1={img1m} img2={img2c} />
+              </Flex>
+            </PopoverBody>
+          </PopoverContent>
+        </Popover>
+      </Flex>
+      <Icon />
     </div>
   );
 }
