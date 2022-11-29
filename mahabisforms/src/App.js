@@ -1,15 +1,10 @@
 import './App.css';
-import Signup from './Components/Signup';
-import { BrowserRouter } from 'react-router-dom';
-
+import Sonu from './Sonu';
 
 function App() {
   return (
     <div>
-      <BrowserRouter>
-        <Signup />
-      </BrowserRouter>
-      
+      <Sonu />
     </div>
   );
 }

@@ -1,7 +1,7 @@
-import React, { memo, useState, useEffect } from 'react';
-import './signup.css';
+import React, { memo, useState, useEffect, useContext } from 'react';
+import './CSSS/signup.css';
 import TextField from '@mui/material/TextField';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import FilledInput from '@mui/material/FilledInput';
@@ -33,6 +33,10 @@ function Signup(){
         signal: '🔍',
         color: 'inherit',
     });
+
+
+
+    // ---------------------------------------
 
     const handleClickShowPassword = () => {
         setSignup({
@@ -195,4 +199,4 @@ function Signup(){
     )
 }
 
-export default Signup;
+export default memo(Signup);
