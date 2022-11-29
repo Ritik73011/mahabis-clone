@@ -1,5 +1,6 @@
 
 import './App.css';
+import HomePage from './Components/HomePage/HomePage';
 import Nav from './Components/Navbar/Nav';
 
 function App() {
@@ -7,13 +8,7 @@ function App() {
     <div className="App">
       <Nav />
       <div style={{ marginTop: "72px" }}>
-        <h1>Ritik Kumar SIngh</h1>
-        <h1>Ritik Kumar SIngh</h1>
-        <h1>Ritik Kumar SIngh</h1>
-        <h1>Ritik Kumar SIngh</h1>
-        <h1>Ritik Kumar SIngh</h1>
-        <h1>Ritik Kumar SIngh</h1>
-        <h1>Ritik Kumar SIngh</h1>
+        <HomePage />
       </div>
     </div>
   );
