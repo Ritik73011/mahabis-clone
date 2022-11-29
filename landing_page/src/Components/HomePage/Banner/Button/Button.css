@@ -1,0 +1,24 @@
+.btnSh {
+    display: block;
+    background-color: #222222;
+    font-family: Raleway, sans-serif;
+    font-weight: 600;
+    color: white;
+    padding: 15px 56px;
+    font-size: 13px;
+    letter-spacing: 0.04;
+    cursor: pointer;
+    max-height: 49px;
+}
+
+.btnSh:hover {
+    background-color: white;
+    color: #333;
+    border: 2px solid black;
+}
+
+@media only screen and (max-width: 768px) {
+    .btnSh {
+        padding: 13px 40px;
+    }
+}
