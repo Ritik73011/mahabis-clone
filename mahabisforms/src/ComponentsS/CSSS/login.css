@@ -1,0 +1,24 @@
+
+
+.loginEmail{
+    margin-top: 50px;
+}
+
+.rememberMe{
+    display:flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.passwordSignal{
+    margin-top: 5px;
+}
+
+#forgotPass{
+    color:blue;
+    text-decoration: none;
+}
+
+#forgotPass:hover{
+    text-decoration: underline;
+}

@@ -110,7 +110,7 @@ function Signup(){
 
                     <div className='signup3'>
                         <div id='sp3i'>Create account</div>
-                        <div><NavLink to='#' id='sp3ii'>Already have an account?</NavLink></div>
+                        <div><NavLink to='/login' id='sp3ii'>Already have an account?</NavLink></div>
                     </div>
 
                     <div className='signup4'>

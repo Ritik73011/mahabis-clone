@@ -1,8 +1,10 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import Signup from './ComponentsS/Signup';
+import Login from './ComponentsS/Login';
 import { Provider } from 'react-redux';
 import myStoreS1 from './ComponentsS/ReduxS/ReduxStoreS/StoreS1';
+import RoutingS1 from './ComponentsS/RoutingS/RoutingS1';
 
 
 
@@ -11,7 +13,7 @@ const Sonu = () => {
     <div>
       <BrowserRouter>
         <Provider store={myStoreS1}>
-          <Signup />
+          <RoutingS1 />
         </Provider>
         </BrowserRouter>
     </div>
