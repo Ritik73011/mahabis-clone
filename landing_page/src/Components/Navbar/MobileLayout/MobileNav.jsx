@@ -80,6 +80,16 @@ function MobileNav(){
     <Accessories name={''} arr={empty} />
     </AccordionPanel>
   </AccordionItem>
+
+  <AccordionItem>
+    <h2>
+      <AccordionButton>
+        <Box flex='1' textAlign='left' padding={'6px'}>
+         My Acount
+        </Box>
+      </AccordionButton>
+    </h2>
+  </AccordionItem>
 </Accordion>
     </div>
 }
