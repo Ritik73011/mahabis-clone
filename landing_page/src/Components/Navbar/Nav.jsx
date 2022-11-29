@@ -2,9 +2,9 @@ import Logo from './Logo/Logo'
 import MenuLists from './MenuList/MenuLists';
 import {HamburgerIcon} from '@chakra-ui/icons'
 import './Nav.css';
-import { Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, Grid, useDisclosure, useMediaQuery } from '@chakra-ui/react';
+import { Divider, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, useDisclosure, useMediaQuery } from '@chakra-ui/react';
 import Icon from './Icons/Icon';
-import MegaMenu from './MenuList/MegaMenu';
+import MobileNav from './MobileLayout/MobileNav';
 function Nav() {
   const [isLargerThan768] = useMediaQuery('(min-width: 768px)')
 
@@ -20,9 +20,10 @@ function Nav() {
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
-          <DrawerHeader>{`${'xs'} drawer contents`}</DrawerHeader>
+          <DrawerHeader><Logo/></DrawerHeader>
+          <Divider/>
           <DrawerBody position={'relative'}>
-            <MegaMenu Layout={Grid}/>
+            <MobileNav/>
           </DrawerBody>
         </DrawerContent>
       </Drawer>

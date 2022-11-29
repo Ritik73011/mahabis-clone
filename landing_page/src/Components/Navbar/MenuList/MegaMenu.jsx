@@ -46,7 +46,7 @@ function MegaMenu({Layout}){
           <PopoverContent pos='absolute' top='2' width='100%' bg='#f5f5f5'>
             <PopoverBody>
               <Flex gap='70px' justifyContent='center' padding='20px 16px'>
-                <NavItems name={'mens'} arr={womens} />
+                <NavItems name={'womens'} arr={womens} />
                 <NavItems name={'collections'} arr={womensCollections} />
                 <Accessories name={'accessories'} arr={accessories} />
                 <ImageMenu name1={name1m} name2={name2c} img1={img3w} img2={img2c} />
