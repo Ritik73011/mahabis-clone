@@ -148,7 +148,7 @@ function Login() {
                         </div>
 
                         <div>
-                            <p><NavLink to='#' id='forgotPass'>Forgot Password?</NavLink></p>
+                            <p><NavLink to='/forgotPassword' id='forgotPass'>Forgot Password?</NavLink></p>
                         </div>
                         
                     </div>
