@@ -1,0 +1,42 @@
+
+
+.signup0{
+}
+
+.signup1{
+    margin:auto;
+    margin-top:100px;
+    width:450px;
+    min-height:400px;
+    background-color:rgb(255, 255, 255);
+    box-shadow: 1px 1px 5px rgb(98, 98, 98);
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.signup3{
+    display: flex;
+    justify-content: space-between;
+}
+
+#sp3i{
+font-size: 24px;
+font-weight: 700;
+}
+
+#sp3ii{
+    text-decoration: none;
+    color: blue;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.signup4{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 27px;
+}
+
+.email1{
+    margin-top: 20px;
+}
