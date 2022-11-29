@@ -7,6 +7,7 @@ import {
   Box,
   useMediaQuery,
 } from "@chakra-ui/react";
+import GridLayout from "./GridLayout/GridLayout";
 import "./TabLayout.css";
 
 function TabLayout() {
@@ -64,13 +65,13 @@ function TabLayout() {
 
           <TabPanels>
             <TabPanel>
-              <p>one!</p>
+              <GridLayout category={"bestseller"} />
             </TabPanel>
             <TabPanel>
-              <p>two!</p>
+              <GridLayout category={"preorder"} />
             </TabPanel>
             <TabPanel>
-              <p>three!</p>
+              <GridLayout category={"backinstock"} />
             </TabPanel>
           </TabPanels>
         </Tabs>

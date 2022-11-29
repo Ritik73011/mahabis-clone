@@ -1,0 +1,11 @@
+.cardLayout {
+    display: block;
+}
+
+.cardImgDiv {
+    width: 100%;
+}
+
+.cardImgDiv img {
+    width: 100%;
+}
