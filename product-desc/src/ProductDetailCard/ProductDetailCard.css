@@ -1,0 +1,21 @@
+.prodDetCar {
+  text-align: left;
+}
+
+.discountDiv {
+  text-align: center;
+  font-size: 12px;
+  background-color: #f5f5f5;
+  line-height: 25px;
+}
+
+.colorDiv {
+  font-size: 12px;
+}
+
+@media all and (min-width: 479px) and (max-width: 799px) {
+  .prodDetCar {
+    text-align: center;
+    padding: 20px 0;
+  }
+}
