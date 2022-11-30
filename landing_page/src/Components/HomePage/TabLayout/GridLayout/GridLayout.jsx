@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { bestSellerAction } from "../../../../Redux/Actions/HomePageAction/bestSellerAction";
 import { preOrderAction } from "../../../../Redux/Actions/HomePageAction/preOrderAction";
 import { backInStockAction } from "../../../../Redux/Actions/HomePageAction/backInStockAction";
+import Skeletons from "../../Skeleton/Skeleton";
 import "./GridLayout.css";
 
 function GridLayout({ category }) {
@@ -46,25 +47,37 @@ function GridLayout({ category }) {
   if (category === "bestseller") {
     return (
       <div className="gridlayout">
-        {bestseller.map((ele) => {
-          return <CardLayout key={ele.id} ele={ele} />;
-        })}
+        {bestseller.length > 0 ? (
+          bestseller.map((ele) => {
+            return <CardLayout key={ele.id} ele={ele} />;
+          })
+        ) : (
+          <Skeletons />
+        )}
       </div>
     );
   } else if (category === "preorder") {
     return (
       <div className="gridlayout">
-        {preOrder.map((ele) => {
-          return <CardLayout key={ele.id} ele={ele} />;
-        })}
+        {preOrder.length > 0 ? (
+          preOrder.map((ele) => {
+            return <CardLayout key={ele.id} ele={ele} />;
+          })
+        ) : (
+          <Skeletons />
+        )}
       </div>
     );
   } else {
     return (
       <div className="gridlayout">
-        {backStock.map((ele) => {
-          return <CardLayout key={ele.id} ele={ele} />;
-        })}
+        {backStock.length > 0 ? (
+          backStock.map((ele) => {
+            return <CardLayout key={ele.id} ele={ele} />;
+          })
+        ) : (
+          <Skeletons />
+        )}
       </div>
     );
   }
