@@ -4,7 +4,7 @@ import "./BannerExplore.css";
 function BannerExplore() {
   const [isLargerThan768] = useMediaQuery("(min-width: 768px)");
   return (
-    <Flex justifyContent={"center"}>
+    <Flex justifyContent={"center"} cursor="pointer">
       <Box margin={"16px 0"} bgColor="#f9f9f8">
         <Image
           maxW={"1240px"}

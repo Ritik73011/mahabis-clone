@@ -1,6 +1,6 @@
 .dividerDiv {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     gap: 16px;
     padding: 24px 40px;
     align-items: center;
