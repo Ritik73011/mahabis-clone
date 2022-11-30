@@ -2,11 +2,15 @@
 
 
 .checkMain{
-width: 80%;
+width: 70%;
 margin: auto;
 margin-bottom: 100px;
 }
 
+.item1{
+    display:flex;
+    justify-content:space-between;
+}
 
 
 .billingAnddelivery{
@@ -15,6 +19,7 @@ margin-bottom: 100px;
     /* border: 2px solid green; */
     width:100%;
     margin:auto;
+    margin-top:40px;
 }
 
 #bill{
@@ -39,7 +44,7 @@ margin-bottom: 100px;
 }
 
 .shippingMethod{
-width: 75%;
+width:85%;
 }
 
 .shipC1{
@@ -50,6 +55,36 @@ width: 75%;
 #ship1{
     font-size: 25px;
     font-weight: 600;
+}
+
+.billingSummary{
+
+}
+
+.total1{
+
+}
+.tot1{
+    display:flex;
+    justify-content:space-between;
+}
+
+#tot2{
+font-size:20px;
+}
+#tot3{
+font-size:20px;
+}
+
+#cop1{
+    font-size:20px;
+    font-weight:600;
+    color:rgb(23, 130, 37);
+}
+.coupon1{
+    display:flex;
+    justify-content:space-between;
+    margin-top:20px;
 }
 
 
@@ -76,8 +111,13 @@ width: 75%;
     margin-top: 30px;
     border: 1px solid rgb(0, 0, 0);
     padding: 15px;
+    width:100%
 }
 
+
+.paybox1{
+    display:flex;
+}
 
 
 
@@ -97,5 +137,15 @@ width: 75%;
 
     .delivery{
         width: 100%;
+    }
+
+    .paybox1{
+    display:flex;
+    flex-direction:column;
+    gap:20px 0px;
+    }
+
+    .shippingMethod{
+    width: 100%;
     }
 }

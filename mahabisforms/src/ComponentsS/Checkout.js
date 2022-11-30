@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState, useEffect} from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import FormGroup from '@mui/material/FormGroup';
@@ -6,25 +6,17 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import { CountryCode } from './CountrtyCode';
 import './CSSS/Chekout.css';
-
-
-// -----------
-import dayjs from 'dayjs';
-import Stack from '@mui/material/Stack';
-// import TextField from '@mui/material/TextField';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { TimePicker } from '@mui/x-date-pickers/TimePicker';
-import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
-import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
-import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
-import { MonthPicker } from '@mui/x-date-pickers';
-
+// import './CSSS/signup.css';
+import CardDate from './CardDate';
+import { NavLink } from 'react-router-dom';
 
 
 const Ckeckout = () => {
 
-    const [detail, setDetail] = useState();
+    const [detail, setDetail] = useState(0);
+    const [totalPrice, setTotalPrice] = useState(0);
+    const [coupon1, setCoupon1] = useState(totalPrice);
+
 
     const check = {
         fullName:'',
@@ -36,8 +28,34 @@ const Ckeckout = () => {
 
     }
 
+    const items = [{
+        image: 'https://cdn.shopify.com/s/files/1/0238/5795/products/MC-F-DG-SR-2.jpg?v=1636102007',
+        title: 'mahabis classic in larvik dark grey x sahara red (pre-order)',
+        quantity:1,
+        price:10100.00,
+    },
+        {
+            image: 'https://cdn.mahabis.com/website/plp/images/MU-C-DG-SB-2.jpg?43',
+            title: 'mahabis classic in larvik dark grey x sahara red (pre-order)',
+            quantity: 1,
+            price: 3010.50,
+        }
+    ]
+
+    useEffect(() => {
+        sumPrice();
+        setCoupon1(totalPrice);
+    }, [])
+    const sumPrice = () => {
+        items.map((d) => {
+            return setTotalPrice((p) => (p + d.price));
+        })
+    }
+
+    console.log(totalPrice);
+
     const Input1 = ({ ind, detail }) => {
-        console.log(ind.label)
+        // console.log(ind.label)
 
         return (
             <div>
@@ -64,8 +82,47 @@ const Ckeckout = () => {
     }
 
 
+    const coupon = () => {
+        alert("🎉🎉 COUPON 'SONU20' is applied 🎉🎉");
+        let afterCoupon = totalPrice - (totalPrice * 20) / 100;
+        setCoupon1(afterCoupon);
+        setDetail(1);
+    }
+
+
     return (
         <div className='checkMain'>
+
+            <div className='orderSummary'>
+                <p id='bill'>Order Summary</p>
+
+
+                {items.map((d, id) => {
+                    return (
+                        <div className='item1' key={ id}>
+                            <div>
+                                <img src={ d.image} alt='pdr' with='100' height='100' />
+                            </div>
+                            <div style={{ width: '60%' }}>
+                                <p>{ d.title}</p>
+                                <p style={{ fontSize: '12px' }}>Quantity : { d.quantity}</p>
+                                <p style={{ fontSize: '12px' }}>Price : ₹ { d.price}</p>
+                            </div>
+                        </div>
+
+                    )
+                }) }
+
+            </div>
+            <hr />
+            <h3 style={{ float: 'right' }}> Items total : ₹ { totalPrice}</h3>
+            <br />
+            <br />
+            <br />
+            <hr/>
+
+
+
             <div className='billingAnddelivery'>
                 <div className='billing'>
                     <p id='bill'>Billing address</p>
@@ -79,7 +136,7 @@ const Ckeckout = () => {
                 <div className='delivery'>
                     <div>
                         <FormGroup>
-                            <FormControlLabel control={<Checkbox />} label="Default (same as billing address)" />
+                            <FormControlLabel control={<Checkbox defaultChecked />} label="Default (same as billing address)" />
                             <FormControlLabel control={<Checkbox />} label="Add an alternative delivery address" />
                         </FormGroup>
                     </div>
@@ -102,7 +159,7 @@ const Ckeckout = () => {
 
                 <div className='shipC1'>
                     <div>
-                        <FormControlLabel control={<Checkbox />} label="Rs. 508.10"/>
+                        <FormControlLabel control={<Checkbox defaultChecked />} label="₹ 508.10"/>
                     </div>
                     <div>
                         <p>Standard courier<br></br><i>9 to 11 business days</i></p>
@@ -111,7 +168,7 @@ const Ckeckout = () => {
 
                 <div className='shipC1'>
                     <div>
-                        <FormControlLabel control={<Checkbox />} label="Rs. 1524.30" />
+                        <FormControlLabel control={<Checkbox />} label="₹ 1524.30" />
                         <br></br><i>pre-payment of duties and taxes supported</i>
                     </div>
                     <div>
@@ -121,8 +178,43 @@ const Ckeckout = () => {
                 </div>
                 
             </div>
-            <hr/>
+            <hr />
+            
+            <div className='billingSummary'>
 
+                <p id='ship1'> 📝 Billing Summary </p>
+
+                <i>Would you like to use your gift card? 🎁</i>
+
+                <div className='coupon1'>
+                    <div><p id='cop1'>Coupon available</p></div>
+                    <div style={{width:'150px'}}>
+                        <button class="custom-btn btn-12" onClick={() =>coupon()}><span ><NavLink to='#' id='createAccounti'>Apply</NavLink></span><span id='createAccounti'>SONU20</span></button>
+                        </div>
+                </div>
+
+                <div className='total1'>
+                    <div className='tot1'>
+                        <p id='tot2'>Total</p>
+                        <p id='tot3'><i>₹ { totalPrice}</i></p>
+                    </div>
+                    <div className='tot1'>
+                        <p id='tot2'>Shipping</p>
+                        <p id='tot3'><i>₹ 508.10</i></p>
+                    </div>
+
+                    <div className='tot1'>
+                        <p id='tot2'>Total for your order</p>
+                        <p id='tot3'><i>₹ {detail ? coupon1 : totalPrice+508.10}</i></p>
+                    </div>
+
+                    <i style={{ color: 'grey', fontSize:'12px'}}>Local taxes, duties or customs clearance fees may apply</i>
+                </div>
+
+
+            </div>
+
+            <hr/>
             <div className='payment1'>
                 <div>
                     <p id='ship1'>Payment <span style={{ color: 'red' }} >💸</span></p>
@@ -150,27 +242,60 @@ const Ckeckout = () => {
                 <div className='pay1'>
                     <p style={{fontWeight:600, fontSize:'20px'}}>Fill card details :</p>
 
-                    <div>
-                        <TextField type='number' sx={{width:'50%'}}
+                    <div className='paybox1'>
+                        <div>
+                        <TextField type='number' sx={{width:'95%'}}
                         label="Card Number 💳"
                         placeholder="Type in here…"
                         variant="outlined"
                         color="primary"
                         />
+                        </div>
+
+                        <div>
+                            <CardDate />
+                        </div>
+                        <div>
+                            <TextField type='number' sx={{ width: '95%' }}
+                                label="CVV Number 💳"
+                                placeholder="Type in here…"
+                                variant="outlined"
+                                color="primary"
+                            />
+                        </div>
+
                     </div>
 
                     <div>
-                        <LocalizationProvider dateAdapter={AdapterDayjs}>
-                            <MonthPicker />
-                        </LocalizationProvider>
+                        <div style={{width:'40%', margin:'auto', marginTop:"20px"}}>
+                            <NavLink to='/orderplaced' id='createAccounti'><button class="custom-btn btn-12"><span style={{fontSize:'20px'}}>Click!</span><span id='createAccounti'>Pay & place order</span></button></NavLink>
+                        </div>
                     </div>
 
-
-
                 </div>
+                <i style={{ color: 'grey', fontSize: '10px' }}>
+                    *By clicking pay and place order, you agree to purchase your item(s) from global-e as merchant of record for this transaction, on global-e’s terms and conditions and privacy policy. global-e is an international fulfilment service provider to mahabis.
+                </i>
 
             </div>
 
+            <div style={{marginTop:"50px", textAlign:'center', cursor:'pointer'}}>
+                <span style={{color:'grey',fontSize:'12px'}}>Contact Us</span>
+                <span style={{color:'green', fontSize:'15px'}}> | </span>
+                <span style={{ color: 'grey', fontSize: '12px' }}>Help</span>
+                <span style={{ color: 'green', fontSize: '15px' }}> | </span>
+                <span style={{ color: 'grey', fontSize: '12px' }}>Terms & conditions</span>
+                <span style={{ color: 'green', fontSize: '15px' }}> | </span>
+                <span style={{ color: 'grey', fontSize: '12px' }}> Privacy policy</span>
+
+            </div>
+
+            <div style={{marginTop:'20px', textAlign:'center'}}>
+                <img src="https://www.global-e.com/sectigo_trust_seal_sm_82x32.png" alt="logo" />
+            </div>
+
+            <div>
+            </div>
 
 
         </div>

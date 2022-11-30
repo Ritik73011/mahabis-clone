@@ -4,6 +4,7 @@ import Login from '../Login';
 import Signup from '../Signup';
 import ForgotPassword from '../ForgotPassword';
 import Checkout from '../Checkout';
+import OrderPlaced from '../OrderPlaced';
 
 const RoutingS1 = () => {
   return (
@@ -13,7 +14,8 @@ const RoutingS1 = () => {
             <Route path='/login' element={<Login />} />
             <Route path='/signup' element={<Signup />} />
             <Route path='/forgotPassword' element={ <ForgotPassword />} />
-            <Route path='/checkout' element={<Checkout/>} />
+            <Route path='/checkout' element={<Checkout />} />
+            <Route path='/orderplaced' element={ <OrderPlaced />} />
         </Routes>
     </div>
   )
