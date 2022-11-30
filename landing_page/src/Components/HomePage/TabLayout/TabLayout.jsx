@@ -19,7 +19,7 @@ function TabLayout() {
         Innovative comfort that takes you everywhere
       </h1>
 
-      <Box>
+      <Box marginTop={"13px"}>
         <Tabs align="center" colorScheme={"blackAlpha"}>
           <TabList color={"#111"}>
             <Tab

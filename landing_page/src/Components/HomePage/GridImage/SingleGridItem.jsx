@@ -1,9 +1,9 @@
-import { Box, Image } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import "./SingleGridItem.css";
 
 function SingleGridItem({ img, name }) {
   return (
-    <Box position={"relative"}>
+    <Box position={"relative"} cursor="pointer">
       <img src={img} alt="" />
       <p className="textOnImage">{name}</p>
     </Box>
