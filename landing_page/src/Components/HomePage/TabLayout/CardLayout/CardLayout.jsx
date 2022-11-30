@@ -7,8 +7,8 @@ function CardLayout({ ele }) {
         <img src={ele.image.img1} alt="" />
       </div>
       <h3>{ele.title}</h3>
-      <p>{ele.color}</p>
-      <p>{ele.price}</p>
+      <p className="color">{ele.color}</p>
+      <p className="priceC">₹‌{ele.price}</p>
     </div>
   );
 }

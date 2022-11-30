@@ -20,7 +20,6 @@ function GridLayout({ category }) {
   });
 
   const fetchData = async () => {
-    console.log("object");
     const responce = await fetch(
       "https://collection-mart-default-rtdb.firebaseio.com/product.json"
     );
