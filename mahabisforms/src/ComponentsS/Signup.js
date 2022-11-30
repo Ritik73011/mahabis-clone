@@ -15,6 +15,7 @@ import Typography from '@mui/material/Typography';
 import { Divider } from '@mui/material';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
+import CountrySelect from './CountrySelect';
 
 
 
@@ -154,6 +155,10 @@ function Signup(){
                         <Box sx={{ width: '30%' }}>
                             <LinearProgressWithLabel color='success' value={sigl.signal} />
                         </Box>
+                    </div>
+
+                    <div className='countrySelect'>
+                        <CountrySelect />
                     </div>
 
                     <div className='TandC'>
