@@ -1,0 +1,101 @@
+
+
+
+.checkMain{
+width: 80%;
+margin: auto;
+margin-bottom: 100px;
+}
+
+
+
+.billingAnddelivery{
+    display:flex;
+    justify-content:center;
+    /* border: 2px solid green; */
+    width:100%;
+    margin:auto;
+}
+
+#bill{
+    font-size: 25px;
+    font-weight: 600;
+
+}
+.billing{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* border: 1px solid red; */
+    width:80%;
+}
+
+.delivery{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* border: 1px solid rgb(7, 96, 249); */
+    width:80%;
+}
+
+.shippingMethod{
+width: 75%;
+}
+
+.shipC1{
+    display:flex;
+    justify-content:space-between;
+}
+
+#ship1{
+    font-size: 25px;
+    font-weight: 600;
+}
+
+
+
+.payment1{
+    margin-top: 10px;
+    /* border: 1px solid red; */
+}
+
+.payimg{
+    display: flex;
+    gap: 0px 15px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.allpaylogo{
+    display: flex;
+    gap: 0 20px;
+    margin-top:15px;
+}
+
+.pay1{
+    margin-top: 30px;
+    border: 1px solid rgb(0, 0, 0);
+    padding: 15px;
+}
+
+
+
+
+
+
+
+@media only screen and (max-width: 600px) {
+
+    .billingAnddelivery{
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .billing{
+        width:100%
+    }
+
+    .delivery{
+        width: 100%;
+    }
+}
