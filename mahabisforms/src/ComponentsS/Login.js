@@ -1,4 +1,4 @@
-import React, { memo, useState, useEffect, useContext } from 'react';
+import React, { memo, useState, useEffect, useContext, useCallback } from 'react';
 import './CSSS/signup.css';
 import './CSSS/login.css'
 import TextField from '@mui/material/TextField';
@@ -18,6 +18,10 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
+import { webAuth } from './AuthFirbase';
+import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import './CSSS/toast.css'
 
 
 
@@ -34,7 +38,77 @@ function Login() {
         color: 'inherit',
     });
 
+    const [toast, setToast] = useState(0);
+    const navigate1 = useNavigate();
 
+    const [tst, setTst] = useState(1);
+
+    // ------------------------------------
+
+    const loginS = () => {
+
+        if (signup.email === '' || signup.password === '') {
+            alert('Please fill all the fields !!');
+        }
+        else {
+
+            signInWithEmailAndPassword(webAuth, signup.email, signup.password)
+                .then((userCredential) => {
+                    // Signed in 
+                    const user = userCredential.user;
+                    alert("done")
+                    navigate1("/checkout");
+                    // ...
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    alert(errorMessage);
+                });
+
+        }
+    }
+    console.log(signup);
+
+    function launch_toast() {
+        var x = document.getElementById("toast")
+        // x.className = "show";
+        setTimeout(function () { x.className = x.className.replace("show", ""); }, 5000);
+        console.log("lo")
+    }
+
+
+
+    // ====
+
+    const provider = new GoogleAuthProvider();
+
+    const googleLog = () => {
+        signInWithPopup(webAuth, provider)
+            .then((result) => {
+                // This gives you a Google Access Token. You can use it to access the Google API.
+                const credential = GoogleAuthProvider.credentialFromResult(result);
+                const token = credential.accessToken;
+                // The signed-in user info.
+                const user = result.user;
+                alert(user)
+                // navigate1("/checkout");
+
+                // ...
+            }).catch((error) => {
+                // Handle Errors here.
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // The email of the user's account used.
+                const email = error.customData.email;
+                // The AuthCredential type that was used.
+                const credential = GoogleAuthProvider.credentialFromError(error);
+                alert(errorMessage)
+                // ...
+            });
+    }
+
+    // ====
 
     // ---------------------------------------
 
@@ -99,6 +173,13 @@ function Login() {
         );
     }
 
+    const toastsh = useCallback(() => {
+        setTst(0);
+        setTimeout(() => {
+            setTst(1);
+        }, 5000)
+    }, []);
+
 
     // console.log(signup);
 
@@ -150,7 +231,6 @@ function Login() {
                         <div>
                             <p><NavLink to='/forgotPassword' id='forgotPass'>Forgot Password?</NavLink></p>
                         </div>
-                        
                     </div>
 
                     <div className='passwordSignal'>
@@ -161,7 +241,7 @@ function Login() {
 
 
                     <div className='createAccount'>
-                        <button class="custom-btn btn-12"><span ><NavLink to='#' id='createAccounti'>Click!</NavLink></span><span id='createAccounti'>Login</span></button>
+                        <button class="custom-btn btn-12" onClick={(e) => loginS()}><span ><NavLink to='#' id='createAccounti'>Click!</NavLink></span><span id='createAccounti'>Login</span></button>
                     </div>
 
                     <div className='divider1'>
@@ -173,7 +253,7 @@ function Login() {
 
                         <Stack direction="row" spacing={2} >
                             <NavLink to='#' id='acct1'>
-                                <Button variant="outlined" sx={{ width: '120px' }}>
+                                <Button variant="outlined" sx={{ width: '120px' }} onClick={ ()=> googleLog()}>
                                     <img src="https://www.clipartmax.com/png/middle/105-1055517_google-chrome-icon-google-logo-round-png.png" alt='img' width='32' />Google
                                 </Button>
                             </NavLink>
@@ -194,6 +274,10 @@ function Login() {
                     </div>
 
                 </div>
+            </div>
+            <div>
+                <button onClick={() => toastsh()}>Show Toast</button>
+                <div id="toast" className={tst ? "oops" : "show"}><div id="img">Icon</div><div id="desc">A notification message..</div></div>
             </div>
         </div>
     )

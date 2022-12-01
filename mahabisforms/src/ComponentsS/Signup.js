@@ -16,6 +16,8 @@ import { Divider } from '@mui/material';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import CountrySelect from './CountrySelect';
+import { webAuth } from './AuthFirbase';
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 
 
@@ -36,6 +38,35 @@ function Signup(){
     });
 
 
+    // ---firebase
+
+
+
+    // ------------------------------------
+    const createAccount = () => {
+        
+        if (signup.firstName === '' || signup.lastName === '' || signup.email === '' || signup.password === '') {
+            alert('Please fill all the fields !!');
+        }
+        else {
+            alert("done");
+
+            createUserWithEmailAndPassword(webAuth, signup.email, signup.password)
+                .then((userCredential) => {
+                    // Signed in 
+                    const user = userCredential.user;
+                    // alert(user);
+                    // ...
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    alert(errorMessage);
+                    // ..
+                });
+
+        }
+    }
 
     // ---------------------------------------
 
@@ -166,7 +197,7 @@ function Signup(){
                     </div>
 
                     <div className='createAccount'>
-                        <button class="custom-btn btn-12"><span ><NavLink to='#'id='createAccounti'>Click!</NavLink></span><span id='createAccounti'>Create Account</span></button>
+                        <button class="custom-btn btn-12" onClick={(e)=> createAccount()}><span ><NavLink to='#'id='createAccounti'>Click!</NavLink></span><span id='createAccounti'>Create Account</span></button>
                     </div>
 
                     <div className='divider1'>

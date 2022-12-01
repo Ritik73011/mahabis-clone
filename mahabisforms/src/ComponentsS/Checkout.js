@@ -16,6 +16,11 @@ const Ckeckout = () => {
     const [detail, setDetail] = useState(0);
     const [totalPrice, setTotalPrice] = useState(0);
     const [coupon1, setCoupon1] = useState(totalPrice);
+    const [card, setCard] = useState({
+        num:'',
+        exDate:'',
+        cvv:''
+    });
 
 
     const check = {
@@ -25,7 +30,6 @@ const Ckeckout = () => {
         city: '',
         pin: '',
         phone:''
-
     }
 
     const items = [{
@@ -244,11 +248,11 @@ const Ckeckout = () => {
 
                     <div className='paybox1'>
                         <div>
-                        <TextField type='number' sx={{width:'95%'}}
-                        label="Card Number 💳"
-                        placeholder="Type in here…"
-                        variant="outlined"
-                        color="primary"
+                            <TextField type='number' sx={{ width: '95%' }}
+                                label="Card Number 💳"
+                                placeholder="Type in here…"
+                                variant="outlined"
+                                color="primary"
                         />
                         </div>
 

@@ -15,7 +15,9 @@ const RoutingS1 = () => {
             <Route path='/signup' element={<Signup />} />
             <Route path='/forgotPassword' element={ <ForgotPassword />} />
             <Route path='/checkout' element={<Checkout />} />
-            <Route path='/orderplaced' element={ <OrderPlaced />} />
+            <Route path='/orderplaced' element={<OrderPlaced />} />
+            <Route path="*" element={<h1>Page not found</h1> }/>
+            {/* <Route path='/home' element={ <Checkout/>} /> */}
         </Routes>
     </div>
   )

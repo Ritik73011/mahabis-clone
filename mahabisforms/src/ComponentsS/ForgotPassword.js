@@ -18,6 +18,8 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
+import { webAuth } from './AuthFirbase';
+import {sendPasswordResetEmail } from "firebase/auth";
 
 
 
@@ -34,6 +36,25 @@ function ForgotPassword() {
         color: 'inherit',
     });
 
+    console.log(signup.email);
+
+    // ==============
+
+    const forgot = () => {
+            sendPasswordResetEmail(webAuth, signup.email)
+            .then(() => {
+                // Password reset email sent!
+                // ..
+                alert("sms sent")
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // ..
+            });
+    }
+
+    // ===========
 
 
     // ---------------------------------------
@@ -124,7 +145,7 @@ function ForgotPassword() {
                     </div>
 
                     <div className='createAccount'>
-                        <button class="custom-btn btn-12"><span ><NavLink to='#' id='createAccounti'>Click!</NavLink></span><span id='createAccounti'>Send Passowrd Reset Email</span></button>
+                        <button class="custom-btn btn-12" onClick={ ()=>forgot()}><span ><NavLink to='#' id='createAccounti'>Click!</NavLink></span><span id='createAccounti'>Send Passowrd Reset Email</span></button>
                     </div>
 
                     
