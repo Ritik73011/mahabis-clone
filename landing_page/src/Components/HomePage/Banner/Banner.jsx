@@ -7,8 +7,8 @@ function Banner() {
     <div className="bannerDiv">
       <Image
         width="100%"
-        maxHeight="450px"
-        src="https://firebasestorage.googleapis.com/v0/b/collection-mart.appspot.com/o/ezgif.com-gif-maker.jpg?alt=media&token=79892b87-a0cc-422b-9c08-7b3014159c8b"
+        maxHeight="550px"
+        src="https://cdn.mahabis.com/website/homepage/webp/desktop-homepage-bf-2022-new.webp"
       />
 
       <Flex mt={"16px"} justifyContent="space-evenly">
