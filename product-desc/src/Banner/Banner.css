@@ -42,13 +42,13 @@
   padding: 220px 0;
 }
 
-.bannerHeading h2 {
+/* .bannerHeading h2 {
   font-size: 32px;
   font-weight: 400;
-}
+} */
 
 hr {
-  width: 5%;
+  width: 8%;
   margin-left: 0;
   border: 3px solid #bbbbbb;
   border-bottom: 0;
@@ -66,7 +66,6 @@ hr {
 }
 
 @media all and (min-width: 479px) and (max-width: 799px) {
-
   .bannerContainer {
     display: block;
     text-align: center;
