@@ -42,13 +42,17 @@ function Login() {
     const navigate1 = useNavigate();
 
     const [tst, setTst] = useState(1);
+    const [toastData, setToastData] = useState({
+        icon: '',
+        message:''
+    });
 
     // ------------------------------------
 
     const loginS = () => {
 
         if (signup.email === '' || signup.password === '') {
-            alert('Please fill all the fields !!');
+            toastsh("🔍", 'Fill the required fields...', "/login");
         }
         else {
 
@@ -56,26 +60,20 @@ function Login() {
                 .then((userCredential) => {
                     // Signed in 
                     const user = userCredential.user;
-                    alert("done")
-                    navigate1("/checkout");
+                    // alert("done")
+                    toastsh("✅", 'Login successful 🎉', "/checkout");
                     // ...
                 })
                 .catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
-                    alert(errorMessage);
+                    toastsh("❌", "Wrong credentials", "/login");
                 });
 
         }
     }
-    console.log(signup);
+    // console.log(signup);
 
-    function launch_toast() {
-        var x = document.getElementById("toast")
-        // x.className = "show";
-        setTimeout(function () { x.className = x.className.replace("show", ""); }, 5000);
-        console.log("lo")
-    }
 
 
 
@@ -91,7 +89,7 @@ function Login() {
                 const token = credential.accessToken;
                 // The signed-in user info.
                 const user = result.user;
-                alert(user)
+                toastsh("✅", 'Login successful 🎉', "/checkout");
                 // navigate1("/checkout");
 
                 // ...
@@ -103,7 +101,7 @@ function Login() {
                 const email = error.customData.email;
                 // The AuthCredential type that was used.
                 const credential = GoogleAuthProvider.credentialFromError(error);
-                alert(errorMessage)
+                toastsh("❌", "Wrong credentials", "/login");
                 // ...
             });
     }
@@ -173,10 +171,15 @@ function Login() {
         );
     }
 
-    const toastsh = useCallback(() => {
+    const toastsh = useCallback((i,m,t) => {
+        setToastData({
+            icon: i,
+            message: m
+        })
         setTst(0);
         setTimeout(() => {
             setTst(1);
+            navigate1(t);
         }, 5000)
     }, []);
 
@@ -276,8 +279,7 @@ function Login() {
                 </div>
             </div>
             <div>
-                <button onClick={() => toastsh()}>Show Toast</button>
-                <div id="toast" className={tst ? "oops" : "show"}><div id="img">Icon</div><div id="desc">A notification message..</div></div>
+                <div id="toast" className={tst ? "oops" : "show"}><div id="img">{toastData.icon}</div><div id="desc">{ toastData.message}</div></div>
             </div>
         </div>
     )

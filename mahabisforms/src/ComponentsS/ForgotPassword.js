@@ -1,4 +1,4 @@
-import React, { memo, useState, useEffect, useContext } from 'react';
+import React, { memo, useState, useEffect, useContext, useCallback } from 'react';
 import './CSSS/signup.css';
 import './CSSS/login.css'
 import TextField from '@mui/material/TextField';
@@ -19,7 +19,8 @@ import Button from '@mui/material/Button';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import { webAuth } from './AuthFirbase';
-import {sendPasswordResetEmail } from "firebase/auth";
+import { sendPasswordResetEmail } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -45,14 +46,41 @@ function ForgotPassword() {
             .then(() => {
                 // Password reset email sent!
                 // ..
-                alert("sms sent")
+                toastsh("✅", 'Password reset link sent 🎉', "/login");
             })
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
-                // ..
+                toastsh("❌", errorMessage, "/forgotPassword");
             });
     }
+
+    // ===========
+
+    // ==============toast========
+    const [toast, setToast] = useState(0);
+    const navigate1 = useNavigate();
+
+    const [tst, setTst] = useState(1);
+    const [toastData, setToastData] = useState({
+        icon: '',
+        message: ''
+    });
+
+
+    const toastsh = useCallback((i, m, t) => {
+        setToastData({
+            icon: i,
+            message: m
+        })
+        setTst(0);
+        setTimeout(() => {
+            setTst(1);
+            navigate1(t);
+        }, 5000)
+    }, []);
+
+    // ===============
 
     // ===========
 
@@ -149,6 +177,9 @@ function ForgotPassword() {
                     </div>
 
                     
+                    <div>
+                        <div id="toast" className={tst ? "oops" : "show"}><div id="img">{toastData.icon}</div><div id="desc">{toastData.message}</div></div>
+                    </div>
 
 
                 </div>

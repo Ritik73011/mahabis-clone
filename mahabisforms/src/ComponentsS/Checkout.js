@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect, useCallback} from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import FormGroup from '@mui/material/FormGroup';
@@ -8,7 +8,7 @@ import { CountryCode } from './CountrtyCode';
 import './CSSS/Chekout.css';
 // import './CSSS/signup.css';
 import CardDate from './CardDate';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 
 const Ckeckout = () => {
@@ -21,6 +21,37 @@ const Ckeckout = () => {
         exDate:'',
         cvv:''
     });
+
+    // ==============toast========
+    const [toast, setToast] = useState(0);
+    const navigate1 = useNavigate();
+
+    const [tst, setTst] = useState(1);
+    const [toastData, setToastData] = useState({
+        icon: '',
+        message: ''
+    });
+
+
+    const toastsh = useCallback((i, m, t) => {
+        setToastData({
+            icon: i,
+            message: m
+        })
+        setTst(0);
+        setTimeout(() => {
+            setTst(1);
+            navigate1(t);
+        }, 5000)
+    }, []);
+
+    const transfer = () => {
+        localStorage.setItem("login", true);
+        toastsh("✅", 'Order Placed !! 📦', "/orderplaced");
+
+    }
+
+    // ===============
 
 
     const check = {
@@ -272,7 +303,7 @@ const Ckeckout = () => {
 
                     <div>
                         <div style={{width:'40%', margin:'auto', marginTop:"20px"}}>
-                            <NavLink to='/orderplaced' id='createAccounti'><button class="custom-btn btn-12"><span style={{fontSize:'20px'}}>Click!</span><span id='createAccounti'>Pay & place order</span></button></NavLink>
+                            <NavLink to='#' id='createAccounti'><button class="custom-btn btn-12" onClick={()=>transfer()}><span style={{fontSize:'20px'}}>Click!</span><span id='createAccounti'>Pay & place order</span></button></NavLink>
                         </div>
                     </div>
 
@@ -299,6 +330,10 @@ const Ckeckout = () => {
             </div>
 
             <div>
+            </div>
+
+            <div>
+                <div id="toast" className={tst ? "oops" : "show"}><div id="img">{toastData.icon}</div><div id="desc">{toastData.message}</div></div>
             </div>
 
 

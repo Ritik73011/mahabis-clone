@@ -1,4 +1,4 @@
-import React, { memo, useState, useEffect, useContext } from 'react';
+import React, { memo, useState, useEffect,useCallback } from 'react';
 import './CSSS/signup.css';
 import TextField from '@mui/material/TextField';
 import { NavLink } from 'react-router-dom';
@@ -18,6 +18,7 @@ import Button from '@mui/material/Button';
 import CountrySelect from './CountrySelect';
 import { webAuth } from './AuthFirbase';
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -38,6 +39,32 @@ function Signup(){
     });
 
 
+    
+    // ==============toast========
+    const [toast, setToast] = useState(0);
+    const navigate1 = useNavigate();
+
+    const [tst, setTst] = useState(1);
+    const [toastData, setToastData] = useState({
+        icon: '',
+        message: ''
+    });
+
+
+    const toastsh = useCallback((i, m, t) => {
+        setToastData({
+            icon: i,
+            message: m
+        })
+        setTst(0);
+        setTimeout(() => {
+            setTst(1);
+            navigate1(t);
+        }, 5000)
+    }, []);
+
+    // ===============
+
     // ---firebase
 
 
@@ -46,22 +73,23 @@ function Signup(){
     const createAccount = () => {
         
         if (signup.firstName === '' || signup.lastName === '' || signup.email === '' || signup.password === '') {
-            alert('Please fill all the fields !!');
+            // alert('Please fill all the fields !!');
+            toastsh("🔍", 'Fill the required fields...', "/signup");
         }
         else {
-            alert("done");
-
             createUserWithEmailAndPassword(webAuth, signup.email, signup.password)
                 .then((userCredential) => {
                     // Signed in 
                     const user = userCredential.user;
                     // alert(user);
+                    toastsh("✅", 'Account created 🎉', "/login");
                     // ...
                 })
                 .catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
-                    alert(errorMessage);
+                    // alert(errorMessage);
+                    toastsh("❌", errorMessage, "/signup");
                     // ..
                 });
 
@@ -230,6 +258,9 @@ function Signup(){
                     </div>
 
                 </div>
+            </div>
+            <div>
+                <div id="toast" className={tst ? "oops" : "show"}><div id="img">{toastData.icon}</div><div id="desc">{toastData.message}</div></div>
             </div>
         </div>
     )
