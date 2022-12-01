@@ -31,10 +31,10 @@
     -webkit-appearance: none;
     height: 40px;
     width: 40px;
-    background: url("slider-icon.svg") center center no-repeat,
+    /*background: url("slider-icon.svg") center center no-repeat,
         rgba(255, 255, 255, 0.3);
     border: 3px solid #ffffff;
-    border-radius: 50%;
+    border-radius: 50%;*/
     background-size: contain;
     cursor: pointer;
     z-index: 40;
