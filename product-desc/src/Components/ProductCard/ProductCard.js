@@ -34,7 +34,32 @@ function ProductCard() {
   //   },
   // };
 
-  const [proData, setProData] = useState({});
+  const [proData, setProData] = useState({
+    title: "mahabis classic",
+    price: "₹‌10,200.00",
+    discount: "Buy 2 or more pairs, GET 20% with the code BLACKFRI",
+    rating: "",
+    desc: "Sink into pure, simple comfort the moment you step in the door. mahabis classic has a pared-back design for those who love the beautiful yet understated things in life. The wool lining and contoured footbed create a feeling of comfort and support, while the premium felt upper ensures you'll always look stylish, wherever the day should take you. Iconic, understated design. Premium felt upper. 100% wool lining. Neoprene heel gently secures your foot in place. Contoured footbed for extra support. Eco-friendly packaging One tree planted for every pair bought",
+    video: "",
+    category: "",
+    color: {
+      clr1: "RED",
+      clr2: "BLACK",
+      clr3: "WHITE",
+    },
+    size: {
+      sz1: "8",
+      sz2: "9",
+      sz3: "10",
+    },
+    image: {
+      img1: "",
+      img2: "",
+      img3: "",
+      img4: "",
+      img5: "",
+    },
+  });
 
   useEffect(() => {
     const getData = async () => {
@@ -42,7 +67,9 @@ function ProductCard() {
         "https://collection-mart-default-rtdb.firebaseio.com/product/1.json"
       );
       let data = await res.json();
+      // console.log(data);
       setProData(data);
+      // proData = data;
     };
     getData();
   }, []);
@@ -52,6 +79,9 @@ function ProductCard() {
   //     "https://collection-mart-default-rtdb.firebaseio.com/product/1.json"
   //   );
   //   let data = await res.json();
+  //   // console.log(data);
+  //   // setProData(data);
+  //   proData = data;
   // };
 
   console.log(proData);
@@ -88,15 +118,9 @@ function ProductCard() {
   ];
   return (
     <Container>
-      {" "}
-      {/* <div className="container">
-        // <ProductImages />
-        // <ProductDetailCard />
-        //{" "}
-      </div> */}
       <Flex mt="50" className="mainContainer">
         <Box w="65%" className="imageContainer">
-          <ProductImages />
+          <ProductImages images={proData.image} />
         </Box>
         <Box w="25%" m="0">
           <ProductDetailCard prod={proData} />

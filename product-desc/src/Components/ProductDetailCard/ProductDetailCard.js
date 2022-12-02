@@ -17,12 +17,12 @@ import {
   Container,
 } from "@chakra-ui/react";
 function ProductDetailCard(props) {
-  console.log(this.props.data);
+  console.log(props.prod);
   // const [cart, setCart] = useState();
   let arr = JSON.parse(localStorage.getItem("cart")) || [];
 
   const addToCart = () => {
-    arr.push(this.props.data);
+    arr.push(props.prod);
     localStorage.setItem("cart", JSON.stringify(arr));
   };
 
@@ -47,15 +47,15 @@ function ProductDetailCard(props) {
       <Box>
         <Box>
           <Box mt="1" mb="0" fontWeight="semibold" as="h1">
-            {this.props.data.title}
+            {props.prod.title}
           </Box>
-          <Box fontWeight="semibold">₹‌{this.props.data.price}</Box>
+          <Box fontWeight="semibold">₹‌{props.prod.price}</Box>
           <Box
             mt="20"
             fontSize="12px"
             textAlign="center"
             backgroundColor="#f5f5f5">
-            discount of {this.props.data.discount}% on pre order
+            discount of {props.prod.discount}% on pre order
           </Box>
           <Box fontSize="10px" mt="20">
             Choose your color |
