@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import RoutingS1 from './ComponentsS/RoutingS/RoutingS1';
+import RoutingS1 from './Components/RoutingS/RoutingS1';
 
 
 

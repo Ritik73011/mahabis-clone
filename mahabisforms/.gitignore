@@ -23,4 +23,3 @@ yarn-debug.log*
 yarn-error.log*
 
 # ignored by sonu
-package-lock.json
