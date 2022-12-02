@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./ProductDetailCard.css";
 import {
   Flex,
@@ -14,44 +14,28 @@ import {
   AccordionItem,
   UnorderedList,
   ListItem,
+  Container,
 } from "@chakra-ui/react";
-function ProductDetailCard() {
-  let product = [
-    {
-      title: "mahabis classic",
-      price: "₹‌10,200.00",
-      discount: "Buy 2 or more pairs, GET 20% with the code BLACKFRI",
-      rating: "",
-      desc: "Sink into pure, simple comfort the moment you step in the door. mahabis classic has a pared-back design for those who love the beautiful yet understated things in life. The wool lining and contoured footbed create a feeling of comfort and support, while the premium felt upper ensures you'll always look stylish, wherever the day should take you. Iconic, understated design. Premium felt upper. 100% wool lining. Neoprene heel gently secures your foot in place. Contoured footbed for extra support. Eco-friendly packaging One tree planted for every pair bought",
-      video: "",
-      category: "",
-      color: {
-        clr1: "RED",
-        clr2: "BLACK",
-        clr3: "WHITE",
-      },
-      size: {
-        sz1: "8",
-        sz2: "9",
-        sz3: "10",
-      },
-      image: {
-        img1: "",
-        img2: "",
-        img3: "",
-        img4: "",
-        img5: "",
-      },
-    },
-  ];
+function ProductDetailCard(props) {
+  console.log(this.props.data);
+  // const [cart, setCart] = useState();
+  let arr = JSON.parse(localStorage.getItem("cart")) || [];
+
+  const addToCart = () => {
+    arr.push(this.props.data);
+    localStorage.setItem("cart", JSON.stringify(arr));
+  };
+
+  // console.log(arr);
+
   return (
     // <div className="prodDetCar">
-    //   {product.map((el, index) => (
+    //   {product.map((data, index) => (
     //     <div key={index}>
-    //       <h2>{el.title}</h2>
-    //       <h3>{el.price}</h3>
+    //       <h2>{data.title}</h2>
+    //       <h3>{this.props.data}</h3>
     //       <div className="discountDiv">
-    //         <p>{el.discount}</p>
+    //         <p>{data.discount}</p>
     //       </div>
     //       <div className="colorDiv">
     //         <p>choose your upper colour | </p>
@@ -59,20 +43,19 @@ function ProductDetailCard() {
     //     </div>
     //   ))}
     // </div>
-
-    <Box>
-      {product.map((el) => (
+    <Container>
+      <Box>
         <Box>
           <Box mt="1" mb="0" fontWeight="semibold" as="h1">
-            {el.title}
+            {this.props.data.title}
           </Box>
-          <Box fontWeight="semibold">{el.price}</Box>
+          <Box fontWeight="semibold">₹‌{this.props.data.price}</Box>
           <Box
             mt="20"
             fontSize="12px"
             textAlign="center"
             backgroundColor="#f5f5f5">
-            {el.discount}
+            discount of {this.props.data.discount}% on pre order
           </Box>
           <Box fontSize="10px" mt="20">
             Choose your color |
@@ -124,6 +107,7 @@ function ProductDetailCard() {
             </Box>
           </Flex>
           <Button
+            onClick={addToCart}
             size="lg"
             w="90%"
             bgColor="black"
@@ -203,8 +187,8 @@ function ProductDetailCard() {
             </Accordion>
           </Box>
         </Box>
-      ))}
-    </Box>
+      </Box>
+    </Container>
   );
 }
 
