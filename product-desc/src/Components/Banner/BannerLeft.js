@@ -11,16 +11,6 @@ import {
 } from "@chakra-ui/react";
 function BannerLeft({ image, heading, subHeading }) {
   return (
-    // <div className="bannerContainer">
-    //   <div className="bannerImg">
-    //     <img src={image} alt="" />
-    //   </div>
-    //   <div className="bannerHeading">
-    //     <h2>{heading}</h2>
-    //     <hr />
-    //     <h3>{subHeading}</h3>
-    //   </div>
-    // </div>
     <Container w="100%">
       <Flex>
         <Box w="50%" m="0">

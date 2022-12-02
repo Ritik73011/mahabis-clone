@@ -18,7 +18,6 @@ import {
 } from "@chakra-ui/react";
 function ProductDetailCard(props) {
   console.log(props.prod);
-  // const [cart, setCart] = useState();
   let arr = JSON.parse(localStorage.getItem("cart")) || [];
 
   const addToCart = () => {
@@ -26,23 +25,7 @@ function ProductDetailCard(props) {
     localStorage.setItem("cart", JSON.stringify(arr));
   };
 
-  // console.log(arr);
-
   return (
-    // <div className="prodDetCar">
-    //   {product.map((data, index) => (
-    //     <div key={index}>
-    //       <h2>{data.title}</h2>
-    //       <h3>{this.props.data}</h3>
-    //       <div className="discountDiv">
-    //         <p>{data.discount}</p>
-    //       </div>
-    //       <div className="colorDiv">
-    //         <p>choose your upper colour | </p>
-    //       </div>
-    //     </div>
-    //   ))}
-    // </div>
     <Container>
       <Box>
         <Box>
