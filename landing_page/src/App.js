@@ -4,7 +4,6 @@ import HomePage from './Components/HomePage/HomePage';
 import Nav from './Components/Navbar/Nav';
 
 function App() {
-  //
   return (
     <div className="App">
       <Nav />
