@@ -5,7 +5,6 @@ import Nav from './Components/Navbar/Nav';
 
 function App() {
   return (
-    //ritik
     <div className="App">
       <Nav />
       <div style={{ marginTop: "72px" }}>
