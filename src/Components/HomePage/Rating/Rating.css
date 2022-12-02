@@ -1,0 +1,72 @@
+.ratingImgGrid {
+    max-width: 1240px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+}
+
+
+.ratingBox {
+    width: 24px;
+    height: 24px;
+    background-color: #00b67a;
+}
+
+.ratingBox p {
+    font-size: 24px;
+    margin-top: -7px;
+    color: white;
+}
+
+.ratingP {
+    padding: 0 16px 15px 16px;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: Raleway, sans-serif;
+    color: #191919;
+}
+
+.totalRating {
+    font-size: 14px;
+    font-family: Raleway, sans-serif;
+    color: #191919;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.roundLogo {
+    display: grid;
+    width: 94px;
+    height: 94px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.roundLogo img {
+    width: 30px;
+    height: 30px;
+    display: block;
+    margin: auto;
+    align-items: center;
+}
+
+@media only screen and (max-width: 768px) {
+    .ratingImgGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .roundLogo {
+        width: 74px;
+        height: 74px;
+    }
+
+    .roundLogo img {
+        width: 24px;
+        height: 24px;
+    }
+}

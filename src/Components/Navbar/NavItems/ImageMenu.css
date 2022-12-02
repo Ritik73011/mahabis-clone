@@ -1,0 +1,41 @@
+.imgMenuGrid {
+    display: block;
+}
+
+.secondImg {
+    margin-top: 16px;
+}
+
+.imgMenuGrid div {
+    width: 190px;
+    min-height: 215px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.imgMenuGrid div img {
+    width: 100%;
+    min-height: 215px;
+}
+
+.imgMenuGrid div p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    width: 100%;
+    color: white;
+    font-family: Raleway, sans-serif;
+    font-size: 14px;
+    display: block;
+    margin: auto 0;
+    padding: 10px;
+}
+
+.imgMenuGrid img:hover {
+    transform: scale(1.07);
+    transition: 0.2s ease-in;
+}

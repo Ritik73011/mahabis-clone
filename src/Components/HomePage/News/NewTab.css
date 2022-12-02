@@ -1,0 +1,42 @@
+.innovative {
+    font-size: 30px;
+    font-family: Raleway, sans-serif;
+    margin-top: 30px;
+    font-weight: 600;
+    color: #000000;
+}
+
+.slideRight {
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    margin: 24px 0;
+}
+
+.slideRight p {
+    animation: slideRight 0.3s;
+    font-size: 30px;
+    font-weight: 600;
+    font-family: Raleway, sans-serif;
+    color: #000;
+}
+
+@keyframes slideRight {
+    from {
+        margin-left: 100%;
+        width: 300%;
+    }
+
+    to {
+        margin-left: 0%;
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .slideRight p {
+
+        font-size: 20px;
+        font-weight: 500;
+    }
+}
