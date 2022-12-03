@@ -152,7 +152,7 @@ function ForgotPassword() {
     // console.log(signup);
 
     return (
-        <div>
+        <div  style={{marginTop:"100px"}}>
 
             <div className='signup0'>
                 <div className='signup1'>

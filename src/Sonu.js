@@ -7,9 +7,7 @@ import RoutingS1 from './Components/RoutingS/RoutingS1';
 const Sonu = () => {
   return (
     <div>
-      <BrowserRouter>
-          <RoutingS1 />
-        </BrowserRouter>
+        <RoutingS1 />
     </div>
   )
 }

@@ -23,7 +23,7 @@ import {
     Checkbox, CheckboxGroup, useMediaQuery
 
 } from '@chakra-ui/react'
-import '../css/cart.css'
+import './css/cart.css'
 import { Skeletons } from './skeleton'
 import {
 
@@ -34,6 +34,7 @@ import {
 
 import { ChevronDownIcon } from '@chakra-ui/icons'
 import { filter } from 'lodash';
+import { Link, useParams } from 'react-router-dom';
 
 
 
@@ -42,7 +43,7 @@ import { filter } from 'lodash';
 
 const Products = () => {
 
-
+    //const {gen,cat} = useParams();
     const [gender, setGender] = useState("");
     const [collection, setCollection] = useState("");
     const [sorts, setSorting] = useState("");
@@ -420,6 +421,7 @@ const Products = () => {
                 <Grid width={'100%'} justifyContent='center' gap={'16px'} padding='0 8px' className='gridProduct' >
                     {data.length > 0 ? data.map((ele) => {
                         return (
+                            <Link to={`/products/:gen/:cat/:${ele.id}`}>
                             <div key={ele.id} className="cardLayout">
                                 <div className="cardImgDiv">
                                     <img src={ele.image.img1} alt="" />
@@ -428,6 +430,7 @@ const Products = () => {
                                 <p className="color">{ele.color}</p>
                                 <p className="priceC">₹‌{ele.price}</p>
                             </div>
+                            </Link>
 
 
                         )

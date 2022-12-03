@@ -61,7 +61,7 @@ function Login() {
                     // Signed in 
                     const user = userCredential.user;
                     // alert("done")
-                    toastsh("✅", 'Login successful 🎉', "/checkout");
+                    toastsh("✅", 'Login successful 🎉', "/");
                     // ...
                 })
                 .catch((error) => {
@@ -187,7 +187,7 @@ function Login() {
     // console.log(signup);
 
     return (
-        <div>
+        <div style={{marginTop:"100px"}}>
 
             <div className='signup0'>
                 <div className='signup1'>
