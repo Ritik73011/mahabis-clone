@@ -11,13 +11,13 @@ function GridLayout({ category }) {
   const dispatch = useDispatch();
 
   const bestseller = useSelector((data) => {
-    return data.bestSellerData;
+    return data.bestSellerReducer.bestSellerData;
   });
   const preOrder = useSelector((data) => {
-    return data.preOrderData;
+    return data.bestSellerReducer.preOrderData;
   });
   const backStock = useSelector((data) => {
-    return data.backInStock;
+    return data.bestSellerReducer.backInStock;
   });
 
   const fetchData = async () => {
