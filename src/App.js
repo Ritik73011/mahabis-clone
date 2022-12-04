@@ -8,6 +8,8 @@ import Signup from './Components/Signup'
 import Ckeckout from './Components/Checkout'
 import ForgotPassword from './Components/ForgotPassword'
 import OrderPlaced from './Components/OrderPlaced'
+import { Footer } from './Components/Footer/Footer';
+import ProductCard from './Components/Product_Details/ProductCard/ProductCard';
 function App() {
   return (
     <div className="App">
@@ -26,8 +28,12 @@ function App() {
             <Route path='/forgotPassword' element={ <ForgotPassword />} />
             <Route path='/checkout' element={<Ckeckout />} />
             <Route path='/orderplaced' element={<OrderPlaced />} />
-            <Route path="*" element={<h1>Page not found</h1> }/>
+            <Route path='/products/:gen/:cat/:id' element={<ProductCard/>}/>
       </Routes>
+
+      <ChakraProvider>
+        <Footer/>
+      </ChakraProvider>
     </div>
   );
 }

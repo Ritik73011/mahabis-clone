@@ -10,8 +10,8 @@ function NavItems({name,arr}){
         <p className='name'>{name} <ChevronRightIcon/></p>
         {
             arr.map((ele)=>{
-                return <Link to={`/products/${name}/${ele.title}`}>
-                        <div key={ele.id} className='navGridFlex'>
+                return <Link key={ele.id} to={`/products/${name}/${ele.title}`}>
+                        <div className='navGridFlex'>
                         <img src={ele.img} alt={ele.title} />
                         <p>{ele.title}</p>
                         </div>

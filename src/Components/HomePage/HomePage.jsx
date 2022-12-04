@@ -7,7 +7,7 @@ import NewsTab from "./News/NewsTab";
 import Rating from "./Rating/Rating";
 import TabLayout from "./TabLayout/TabLayout";
 import VideoBanner from "./VideoBanner/VideoBanner";
-
+import {Footer} from '../Footer/Footer'
 function HomePage() {
   return (
     <div>

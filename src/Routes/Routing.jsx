@@ -9,7 +9,6 @@ const CustumRouting = ()=>{
         <Routes>
             <Route path='/' element={<HomePage/>}/>
             <Route path='/products/:gen/:cat' element={<Products/>}/>
-            <Route path='/products/:gen/:cat/:id' element={<ProductCard/>}/>
             {/*<Route path='/cart' element={<Cart/>}/>*/}
           
           {/*Sonu Rounting*/}

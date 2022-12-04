@@ -5,8 +5,15 @@
 width: 70%;
 margin: auto;
 margin-bottom: 100px;
+text-align: left;
 }
-
+.hr{
+    border-top-width: 1px;
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
+    width: 100%;
+}
 .item1{
     display:flex;
     justify-content:space-between;
@@ -65,6 +72,7 @@ width:85%;
 
 }
 .tot1{
+    margin-top: 12px;
     display:flex;
     justify-content:space-between;
 }

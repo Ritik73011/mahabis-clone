@@ -16,6 +16,7 @@ import {
   ListItem,
   Container,
 } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 function ProductDetailCard(props) {
   console.log(props.prod);
   // const [cart, setCart] = useState();
@@ -64,20 +65,21 @@ function ProductDetailCard(props) {
             <Box
               bgColor="red"
               w="40px"
-              h="40"
+              h="40px"
               color="red"
               border="1px solid black">
               red
             </Box>
             <Box bgColor="black" w="40px" border="1px solid black">
-              black
+             
             </Box>
             <Box
               bgColor="white"
               w="40px"
+              h="40px"
               color="white"
               border="1px solid black">
-              white
+             
             </Box>
           </Flex>
           <Box fontSize="10px" mt="20">
@@ -86,27 +88,28 @@ function ProductDetailCard(props) {
           <Box
             bgColor="red"
             w="40px"
-            h="40"
+            h="40px"
             color="red"
             border="1px solid black"
             mt="20">
-            red
+        
           </Box>
+          
           <Box fontSize="10px" mt="20">
             Choose size
           </Box>
           <Flex textAlign="center">
-            <Box w="40px" mr="10" h="40" border="1px solid black" mt="20">
+            <Box pt={'6'} w="40px" mr="10" h="40" border="1px solid black" mt="20">
               8
             </Box>
-            <Box w="40px" mr="10" h="40" border="1px solid black" mt="20">
+            <Box pt={'6'} w="40px" mr="10" h="40" border="1px solid black" mt="20">
               9
             </Box>
-            <Box w="40px" h="40" border="1px solid black" mt="20">
+            <Box pt={'6'} w="40px" h="40" border="1px solid black" mt="20">
               10
             </Box>
           </Flex>
-          <Button
+         <Link to={'/checkout'}> <Button
             onClick={addToCart}
             size="lg"
             w="90%"
@@ -116,8 +119,8 @@ function ProductDetailCard(props) {
             fontSize="16px"
             mt="20"
             cursor="pointer">
-            Pre Order
-          </Button>
+            ADD TO CART
+          </Button></Link>
           <Box w="90%" mt="20">
             <Image
               src="https://cdn.mahabis.com/website/cart/cart-pdp-bf-2022-new.jpg"
@@ -135,7 +138,7 @@ function ProductDetailCard(props) {
                     <AccordionIcon fontSize="16px" />
                   </AccordionButton>
                 </h2>
-                <AccordionPanel mt="0" fontSize="12px">
+                <AccordionPanel mb={'16px'} mt="0" fontSize="12px">
                   Sink into pure, simple comfort the moment you step in the
                   door. mahabis classic has a pared-back design for those who
                   love the beautiful yet understated things in life. The wool
@@ -161,7 +164,7 @@ function ProductDetailCard(props) {
                     <AccordionIcon />
                   </AccordionButton>
                 </h2>
-                <AccordionPanel fontSize="12px">
+                <AccordionPanel mb={'16px'} fontSize="12px">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                   Ut enim ad minim veniam, quis nostrud exercitation ullamco
@@ -177,7 +180,7 @@ function ProductDetailCard(props) {
                     <AccordionIcon />
                   </AccordionButton>
                 </h2>
-                <AccordionPanel fontSize="12px">
+                <AccordionPanel mb={'16px'} fontSize="12px">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                   Ut enim ad minim veniam, quis nostrud exercitation ullamco

@@ -3,6 +3,7 @@ import './MobileNav.css'
 import { mens, womens, mensCollections, womensCollections, accessories, aboutUS, existingC, gifting, helps, delivery, empty } from '../NavArrays/NavArrays'
 import NavItems from '../NavItems/NavItems'
 import Accessories from '../NavItems/Accessories'
+import { Link } from 'react-router-dom'
 function MobileNav(){
 
     return <div>
@@ -82,13 +83,15 @@ function MobileNav(){
   </AccordionItem>
 
   <AccordionItem>
-    <h2>
+   <Link to={'/login'}>
+   <h2>
       <AccordionButton>
         <Box flex='1' textAlign='left' padding={'6px'}>
          My Acount
         </Box>
       </AccordionButton>
     </h2>
+   </Link>
   </AccordionItem>
 </Accordion>
     </div>

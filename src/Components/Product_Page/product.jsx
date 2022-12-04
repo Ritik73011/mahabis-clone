@@ -527,7 +527,7 @@ const Products = () => {
             data.map((ele) => {
               return (
                 <Link to={`/products/:gen/:cat/:${ele.id}`}>
-                  <div key={ele.id} className="cardLayout">
+                  <div key={ele.id} className="cardLayout1">
                     <div className="cardImgDiv">
                       <img src={ele.image.img1} alt="" />
                     </div>

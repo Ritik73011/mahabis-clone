@@ -136,10 +136,10 @@ const Ckeckout = () => {
                     return (
                         <div className='item1' key={ id}>
                             <div>
-                                <img src={ d.image} alt='pdr' with='100' height='100' />
+                                <img src={ d.image} alt='pdr' width='100' height='100' />
                             </div>
                             <div style={{ width: '60%' }}>
-                                <p>{ d.title}</p>
+                                <p style={{fontWeight:"500"}}>{ d.title}</p>
                                 <p style={{ fontSize: '12px' }}>Quantity : { d.quantity}</p>
                                 <p style={{ fontSize: '12px' }}>Price : ₹ { d.price}</p>
                             </div>
@@ -149,12 +149,12 @@ const Ckeckout = () => {
                 }) }
 
             </div>
-            <hr />
-            <h3 style={{ float: 'right' }}> Items total : ₹ { totalPrice}</h3>
+            <hr  className='hr'/>
+            <br/>
+            <h3 style={{ float: 'right',fontWeight:600,fontSize:"18px" }}> Items total : ₹ { totalPrice}</h3>
             <br />
             <br />
-            <br />
-            <hr/>
+            <hr className='hr'/>
 
 
 
@@ -213,7 +213,7 @@ const Ckeckout = () => {
                 </div>
                 
             </div>
-            <hr />
+            <hr className='hr' />
             
             <div className='billingSummary'>
 
@@ -249,7 +249,7 @@ const Ckeckout = () => {
 
             </div>
 
-            <hr/>
+            <hr className='hr'/>
             <div className='payment1'>
                 <div>
                     <p id='ship1'>Payment <span style={{ color: 'red' }} >💸</span></p>

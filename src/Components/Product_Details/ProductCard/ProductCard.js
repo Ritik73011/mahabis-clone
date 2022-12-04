@@ -6,7 +6,13 @@ import { Box, Container, Flex, Grid, GridItem } from "@chakra-ui/react";
 import BannerLeft from "../Banner/BannerLeft";
 import BannerRight from "../Banner/BannerRight";
 import MainBanner from "../Banner/MainBanner";
+import { useParams } from "react-router-dom";
 function ProductCard() {
+  const {id} = useParams();
+  
+  const ids = id[1]+id[2]
+  console.log(ids);
+
   // let product = {
   //   title: "mahabis classic",
   //   price: "₹‌10,200.00",
@@ -64,7 +70,7 @@ function ProductCard() {
   useEffect(() => {
     const getData = async () => {
       let res = await fetch(
-        "https://collection-mart-default-rtdb.firebaseio.com/product/1.json"
+        `https://collection-mart-default-rtdb.firebaseio.com/product/${ids-1}.json`
       );
       let data = await res.json();
       // console.log(data);
@@ -117,8 +123,8 @@ function ProductCard() {
     },
   ];
   return (
-    <Container>
-      <Flex mt="50" className="mainContainer">
+    <Container textAlign={'left'}>
+      <Flex mt="90px" className="mainContainer">
         <Box w="65%" className="imageContainer">
           <ProductImages images={proData.image} />
         </Box>
