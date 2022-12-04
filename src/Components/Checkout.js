@@ -63,7 +63,7 @@ const Ckeckout = () => {
         phone:''
     }
 
-    const items = [{
+    /*const items = [{
         image: 'https://cdn.shopify.com/s/files/1/0238/5795/products/MC-F-DG-SR-2.jpg?v=1636102007',
         title: 'mahabis classic in larvik dark grey x sahara red (pre-order)',
         quantity:1,
@@ -75,7 +75,10 @@ const Ckeckout = () => {
             quantity: 1,
             price: 3010.50,
         }
-    ]
+    ]*/
+
+    let items = JSON.parse(localStorage.getItem("cart")) || [];
+
 
     useEffect(() => {
         sumPrice();
@@ -83,7 +86,7 @@ const Ckeckout = () => {
     }, [])
     const sumPrice = () => {
         items.map((d) => {
-            return setTotalPrice((p) => (p + d.price));
+            return setTotalPrice((p) => (p + parseInt(d.price)));
         })
     }
 
@@ -136,11 +139,11 @@ const Ckeckout = () => {
                     return (
                         <div className='item1' key={ id}>
                             <div>
-                                <img src={ d.image} alt='pdr' width='100' height='100' />
+                                <img src={d.image.img1} alt='pdr' width='100' height='100' />
                             </div>
                             <div style={{ width: '60%' }}>
                                 <p style={{fontWeight:"500"}}>{ d.title}</p>
-                                <p style={{ fontSize: '12px' }}>Quantity : { d.quantity}</p>
+                                <p style={{ fontSize: '12px' }}>Quantity : { '1'}</p>
                                 <p style={{ fontSize: '12px' }}>Price : ₹ { d.price}</p>
                             </div>
                         </div>

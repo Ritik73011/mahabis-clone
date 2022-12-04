@@ -20,7 +20,7 @@ import SocialMediaImage from '../Images/social media logos.png'
 const Footer = () => {
 
   return (
-    <Box display={"flex"} w="100" height="500px" bg='black' justifyContent="spaceBetween " >
+    <Box display={"flex"} w="100" mt={'16px'} height="500px" bg='black' justifyContent="spaceBetween " >
       <Box display={"flex"} w="42%" height="500px" >
         <Box gap='5px' display='grid' width="50%" height="200px" margin='auto' mt='13%'>
           <Image width='30px' height='20px' src={source} />

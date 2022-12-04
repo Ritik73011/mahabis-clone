@@ -9,11 +9,15 @@ import {
   LinkBox,
   Text,
 } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { context } from "../Navbar/ContextApi/Context";
 import CountVal from "./CountVal";
 
 function Cart() {
+  let nevigate = useNavigate();
   const [total, setTotal] = useState(1);
+  let {setLen} = useContext(context); 
 
   // const increaseCount = () => {
   //   setCount(count + 1);
@@ -28,10 +32,14 @@ function Cart() {
   const deleteProduct = (i) => {
     cartArray.splice(i, 1);
     localStorage.setItem("cart", JSON.stringify(cartArray));
+    let arr = JSON.parse(localStorage.getItem("cart"))||[];
+    setLen(arr.length)
   };
-
+const checkout = ()=>{
+  nevigate('/checkout')
+}
   return (
-    <Container p="200" pt="50">
+    <Container p="200" pt="50" textAlign={'left'}>
       <Text>Your Cart</Text>
       <Flex>
         <Box w="65%">
@@ -57,7 +65,7 @@ function Cart() {
                 <Text
                   textAlign="end"
                   cursor="pointer"
-                  onClick={deleteProduct(index)}>
+                  onClick={()=>deleteProduct(index)}>
                   x
                 </Text>
                 <Text mt="50" mr="30">
@@ -128,6 +136,7 @@ function Cart() {
             <Text>calculated at checkout</Text>
           </Flex>
           <Button
+          onClick={checkout}
             w="100%"
             p="10"
             mb="20"

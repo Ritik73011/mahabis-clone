@@ -1,8 +1,11 @@
 
 import { Divider, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, Flex, useDisclosure } from '@chakra-ui/react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { context } from '../ContextApi/Context';
 import './Icon.css';
 function Icon() {
+  let {length} = useContext(context);
   const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <div className='iconDiv'>
@@ -10,7 +13,7 @@ function Icon() {
         <img src="https://gepi.global-e.com/content/images/flags/in.png" alt="" />
         <Flex onClick={()=>{onOpen()}}>
         <img src="https://cdn.shopify.com/s/files/1/0238/5795/t/29/assets/icon-cart.png?v=182661896060636914941656596211" alt="" />
-        <span className='cartQnt'>99</span>
+        <span className='cartQnt'>{length}</span>
         </Flex>
 
 

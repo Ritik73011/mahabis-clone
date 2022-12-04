@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./ProductDetailCard.css";
 import {
   Flex,
@@ -15,16 +15,27 @@ import {
   UnorderedList,
   ListItem,
   Container,
+  useToast,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import { context } from "../../Navbar/ContextApi/Context";
 function ProductDetailCard(props) {
-  console.log(props.prod);
+  
+  let toast = useToast();
   // const [cart, setCart] = useState();
   let arr = JSON.parse(localStorage.getItem("cart")) || [];
-
+  let {setLen} = useContext(context);
   const addToCart = () => {
+    toast({
+      title: `${'Added to cart'}`,
+      position: "top",
+      icon: " ",
+      isClosable: true,
+    })
     arr.push(props.prod);
     localStorage.setItem("cart", JSON.stringify(arr));
+    let temp = JSON.parse(localStorage.getItem("cart")) || [];
+    setLen(temp.length);
   };
 
   // console.log(arr);
@@ -109,7 +120,7 @@ function ProductDetailCard(props) {
               10
             </Box>
           </Flex>
-         <Link to={'/checkout'}> <Button
+         <Link to={'/cart'}> <Button
             onClick={addToCart}
             size="lg"
             w="90%"
