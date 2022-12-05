@@ -14,7 +14,7 @@ function Icon() {
   }
   return (
     <div className='iconDiv'>
-    <Link to={'/login'}> <img className='acountInfo' src="https://cdn.shopify.com/s/files/1/0238/5795/t/29/assets/icon-myaccount.png?v=85297090699021414941656596220" alt="" /></Link>
+    <Link to={'/profile'}> <img className='acountInfo' src="https://cdn.shopify.com/s/files/1/0238/5795/t/29/assets/icon-myaccount.png?v=85297090699021414941656596220" alt="" /></Link>
         <img src="https://gepi.global-e.com/content/images/flags/in.png" alt="" />
         <Flex onClick={goToCart}>
         <img src="https://cdn.shopify.com/s/files/1/0238/5795/t/29/assets/icon-cart.png?v=182661896060636914941656596211" alt="" />

@@ -48,7 +48,11 @@ const Ckeckout = () => {
     const transfer = () => {
         localStorage.setItem("login", true);
         toastsh("✅", 'Order Placed !! 📦', "/orderplaced");
+        let cart = JSON.parse(localStorage.getItem("cart"))||[];
 
+        localStorage.setItem("ordered",JSON.stringify(cart));
+        let temp = [];
+        localStorage.setItem("cart",JSON.stringify(temp));
     }
 
     // ===============

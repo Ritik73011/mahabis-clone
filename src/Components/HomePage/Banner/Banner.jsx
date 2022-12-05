@@ -7,8 +7,8 @@ function Banner() {
     <div className="bannerDiv">
       <Image
         width="100%"
-        maxHeight="550px"
-        src="https://cdn.mahabis.com/website/homepage/webp/desktop-homepage-bf-2022-new.webp"
+        maxHeight="570px"
+        src="https://cdn.mahabis.com/website/homepage/webp/021222-homepage-desktop.webp"
       />
 
       <Flex mt={"16px"} justifyContent="space-evenly">

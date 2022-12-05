@@ -1,4 +1,4 @@
-import { Box, Button, Flex,useMediaQuery } from "@chakra-ui/react";
+import { Box, Button, Flex,Image,useMediaQuery } from "@chakra-ui/react";
 import SingleCart from "./SingleCart";
 import './Cart.css'
 import { useNavigate } from "react-router-dom";
@@ -31,7 +31,7 @@ function CartItems()
         nevigate('/checkout')
       }
     return <Flex padding={'0 6px'} justifyContent={'center'} fontFamily='Raleway,sans-serif'>
-        <Box display={isLargerThan768?'block':'flex'} className="mediaLayout" gap={'40px'} textAlign={'left'} maxWidth='1033px' width={'100%'} m='16px 0'>
+        {arr.length>0?<Box display={isLargerThan768?'block':'flex'} className="mediaLayout" gap={'40px'} textAlign={'left'} maxWidth='1033px' width={'100%'} m='16px 0'>
             <div className="cartDiv">
             {
                 arr.map((ele,idx)=>{
@@ -53,8 +53,7 @@ function CartItems()
                 <Button mt={'10px'} fontSize='12px' p='10px' w={'100%'}>CONTINUE SHOPPING</Button>
 
             </Box>
-        </Box>
+        </Box>:<Image src="https://cdn-icons-png.flaticon.com/512/2762/2762885.png"/>}
     </Flex>
 }
 export default CartItems;
-

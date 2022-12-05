@@ -13,6 +13,7 @@ import ProductCard from './Components/Product_Details/ProductCard/ProductCard';
 import {context} from './Components/Navbar/ContextApi/Context'
 import { useState } from 'react';
 import CartItems from './Components/Cart/CartItems';
+import { PrivateRouting } from './Routes/PrivateRouting';
 function App() {
   let arr = JSON.parse(localStorage.getItem("cart")) || [];
   let [length,setLength] = useState(arr.length);
@@ -36,7 +37,7 @@ function App() {
       <Route path='/login' element={<Login />} />
             <Route path='/signup' element={<Signup />} />
             <Route path='/forgotPassword' element={ <ForgotPassword />} />
-            <Route path='/checkout' element={<Ckeckout />} />
+            <Route path='/checkout' element={<PrivateRouting><Ckeckout /></PrivateRouting>} />
             <Route path='/orderplaced' element={<OrderPlaced />} />
             <Route path='/products/:gen/:cat/:id' element={<ProductCard/>}/>
             <Route path='/cart' element={<CartItems/>}/>

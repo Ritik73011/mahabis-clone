@@ -89,7 +89,7 @@ function Login() {
                 const token = credential.accessToken;
                 // The signed-in user info.
                 const user = result.user;
-                toastsh("✅", 'Login successful 🎉', "/checkout");
+                toastsh("✅", 'Login successful 🎉', "/");
                 // navigate1("/checkout");
 
                 // ...

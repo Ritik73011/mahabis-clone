@@ -83,7 +83,7 @@ function MobileNav(){
   </AccordionItem>
 
   <AccordionItem>
-   <Link to={'/login'}>
+   <Link to={'/profile'}>
    <h2>
       <AccordionButton>
         <Box flex='1' textAlign='left' padding={'6px'}>
