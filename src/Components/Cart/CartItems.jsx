@@ -26,6 +26,7 @@ function CartItems()
         localStorage.setItem("cart", JSON.stringify(arr));
         let temp = JSON.parse(localStorage.getItem("cart"))||[];
         setLen(temp.length)
+        toatlPrices();
       };
       const checkout = ()=>{
         nevigate('/checkout')
