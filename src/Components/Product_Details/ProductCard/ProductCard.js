@@ -9,9 +9,14 @@ import MainBanner from "../Banner/MainBanner";
 import { useParams } from "react-router-dom";
 function ProductCard() {
   const {id} = useParams();
-  
-  const ids = id[1]+id[2]
+  let ids='';
+  for(let i=1;i<id.length;i++)
+  {
+    ids+=id.charAt(i);
+  }
+
   console.log(ids);
+  
 
   // let product = {
   //   title: "mahabis classic",
@@ -66,15 +71,19 @@ function ProductCard() {
       img5: "",
     },
   });
-
+console.log(proData);
   useEffect(() => {
     const getData = async () => {
       let res = await fetch(
-        `https://collection-mart-default-rtdb.firebaseio.com/product/${ids-1}.json`
+        `https://collection-mart-default-rtdb.firebaseio.com/product.json`
       );
       let data = await res.json();
       // console.log(data);
-      setProData(data);
+     const filteredData = data.filter((ele)=>{
+      return ele.id==ids;
+     });
+
+     setProData(filteredData[0])
       // proData = data;
     };
     getData();
