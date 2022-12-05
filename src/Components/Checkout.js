@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback} from 'react';
+import React, { useState, useEffect, useCallback, useContext} from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import FormGroup from '@mui/material/FormGroup';
@@ -9,10 +9,11 @@ import './CSSS/Chekout.css';
 // import './CSSS/signup.css';
 import CardDate from './CardDate';
 import { NavLink, useNavigate } from 'react-router-dom';
+import { context } from './Navbar/ContextApi/Context';
 
 
 const Ckeckout = () => {
-
+    let{setLen} = useContext(context)
     const [detail, setDetail] = useState(0);
     const [totalPrice, setTotalPrice] = useState(0);
     const [coupon1, setCoupon1] = useState(totalPrice);
@@ -42,7 +43,7 @@ const Ckeckout = () => {
         setTimeout(() => {
             setTst(1);
             navigate1(t);
-        }, 5000)
+        }, 2000)
     }, []);
 
     const transfer = () => {
@@ -53,6 +54,7 @@ const Ckeckout = () => {
         localStorage.setItem("ordered",JSON.stringify(cart));
         let temp = [];
         localStorage.setItem("cart",JSON.stringify(temp));
+        setLen(0);
     }
 
     // ===============
