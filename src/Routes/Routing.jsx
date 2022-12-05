@@ -1,6 +1,5 @@
 import {Route,Routes} from 'react-router-dom'
 import HomePage from '../Components/HomePage/HomePage';
-import ProductCard from '../Components/Product_Details/ProductCard/ProductCard';
 import { Products } from '../Components/Product_Page/product';
 const CustumRouting = ()=>{
 

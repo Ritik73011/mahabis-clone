@@ -79,18 +79,16 @@ const Ckeckout = () => {
 
     let items = JSON.parse(localStorage.getItem("cart")) || [];
 
-
     useEffect(() => {
-        sumPrice();
+        cal();
         setCoupon1(totalPrice);
     }, [])
-    const sumPrice = () => {
-        items.map((d) => {
-            return setTotalPrice((p) => (p + parseInt(d.price)));
-        })
-    }
 
-    console.log(totalPrice);
+    const cal = ()=>{
+        let tt = items.reduce((a,v) =>  a = a + +v.price*+ +v.qnt , 0 );
+        setTotalPrice(tt);
+    }
+   
 
     const Input1 = ({ ind, detail }) => {
         // console.log(ind.label)
@@ -143,7 +141,7 @@ const Ckeckout = () => {
                             </div>
                             <div style={{ width: '60%' }}>
                                 <p style={{fontWeight:"500"}}>{ d.title}</p>
-                                <p style={{ fontSize: '12px' }}>Quantity : { '1'}</p>
+                                <p style={{ fontSize: '12px' }}>Quantity : {d.qnt}</p>
                                 <p style={{ fontSize: '12px' }}>Price : ₹ { d.price}</p>
                             </div>
                         </div>

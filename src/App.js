@@ -11,8 +11,8 @@ import OrderPlaced from './Components/OrderPlaced'
 import { Footer } from './Components/Footer/Footer';
 import ProductCard from './Components/Product_Details/ProductCard/ProductCard';
 import {context} from './Components/Navbar/ContextApi/Context'
-import Cart from './Components/Cart/Cart'
 import { useState } from 'react';
+import CartItems from './Components/Cart/CartItems';
 function App() {
   let arr = JSON.parse(localStorage.getItem("cart")) || [];
   let [length,setLength] = useState(arr.length);
@@ -39,7 +39,7 @@ function App() {
             <Route path='/checkout' element={<Ckeckout />} />
             <Route path='/orderplaced' element={<OrderPlaced />} />
             <Route path='/products/:gen/:cat/:id' element={<ProductCard/>}/>
-            <Route path='/cart' element={<Cart/>}/>
+            <Route path='/cart' element={<CartItems/>}/>
       </Routes>
       </context.Provider>
       <ChakraProvider>

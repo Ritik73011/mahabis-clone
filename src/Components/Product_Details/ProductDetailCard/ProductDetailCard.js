@@ -32,6 +32,7 @@ function ProductDetailCard(props) {
       icon: " ",
       isClosable: true,
     })
+    props.prod.qnt = 1;
     arr.push(props.prod);
     localStorage.setItem("cart", JSON.stringify(arr));
     let temp = JSON.parse(localStorage.getItem("cart")) || [];

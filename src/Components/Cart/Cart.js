@@ -4,6 +4,7 @@ import {
   ButtonGroup,
   Container,
   Flex,
+  Grid,
   Image,
   Link,
   LinkBox,
@@ -13,6 +14,7 @@ import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { context } from "../Navbar/ContextApi/Context";
 import CountVal from "./CountVal";
+import SingleCart from "./SingleCart";
 
 function Cart() {
   let nevigate = useNavigate();
@@ -39,94 +41,16 @@ const checkout = ()=>{
   nevigate('/checkout')
 }
   return (
-    <Container p="200" pt="50" textAlign={'left'}>
+    <Flex justifyContent={'center'} textAlign={'left'} maxWidth='1033px' width={'100%'}>
       <Text>Your Cart</Text>
-      <Flex>
-        <Box w="65%">
+      <Flex gap={'40px'}>
+        <Grid templateColumns={'repeat(1,1fr)'}>
           {cartArray.map((el, index) => (
-            <Flex
-              justifyContent="space-around"
-              mb="20"
-              boxShadow="0 2px 2px black">
-              <Box w="15%">
-                <Image
-                  w="100%"
-                  src="https://cdn.shopify.com/s/files/1/0238/5795/products/MC-F-LG-HV-A2-2_300x.jpg?v=1668705500"
-                />
-              </Box>
-              <Box w="65%" p="60" pt="0" pb="0">
-                <Text m="0" mt="10">
-                  {el.title}
-                </Text>
-                <Text m="0">8</Text>
-                <CountVal />
-              </Box>
-              <Box w="10%" mr="50">
-                <Text
-                  textAlign="end"
-                  cursor="pointer"
-                  onClick={()=>deleteProduct(index)}>
-                  x
-                </Text>
-                <Text mt="50" mr="30">
-                  ₹{el.price}
-                </Text>
-              </Box>
-            </Flex>
+           <SingleCart ele={el}/>
           ))}
-        </Box>
-        {/* <Flex direction="column" border="1px solid red">
-          {cartArray.map((el) => (
-            <Box boxShadow="0 2px 2px black">
-              <Flex align="center" justify="space-between">
-                <Box w="60%">
-                  <Flex justify="space-between" border="1px solid green">
-                    <Box w="20%">
-                      <Image
-                        w="100%"
-                        src="https://cdn.shopify.com/s/files/1/0238/5795/products/MC-F-LG-HV-A2-2_300x.jpg?v=1668705500"
-                      />
-                    </Box>
-                    <Box w="65%" p="60" pt="0" pb="0">
-                      <Text>{el.title}</Text>
-                      <Text>8</Text>
-                      <Box align="center">
-                        <CountVal />
-                        {/* <Button
-                      w="20px"
-                      h="20px"
-                      onClick={() => {
-                        setCount(count + 1);
-                      }}>
-                      +
-                    </Button>
-                    <Text>{count}</Text>
-                    <Button
-                      w="20px"
-                      h="20px"
-                      onClick={() => {
-                        if (count == 1) {
-                          return;
-                        }
-                        setCount(count - 1);
-                      }}>
-                      -
-                    </Button> */}
-        {/* </Box>
-                    </Box>
-                    <Box w="10%" mr="50">
-                      <Text textAlign="end">x</Text>
-                      <Text mt="50" mr="30">
-                        ₹{el.price}
-                      </Text>
-                    </Box>
-                  </Flex>
-                </Box>
-              </Flex>
-            </Box>
-          ))} */}
-        {/* </Flex> */}
-        <Box w="30%" ml="20">
+        </Grid>
+
+        <Box ml="20">
           <Flex justify="space-between">
             <Text>SUBTOTAL</Text>
             <Text></Text>
@@ -158,7 +82,7 @@ const checkout = ()=>{
 
         <Box></Box>
       </Box>
-    </Container>
+    </Flex>
   );
 }
 
